@@ -3,13 +3,12 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AlertModule } from 'ng2-bootstrap/ng2-bootstrap';
-
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppState, InteralStateType, AppUtil } from './shared/services/app.service';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -19,14 +18,14 @@ const APP_PROVIDERS = [
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule,
-    AlertModule
+    AppRoutingModule
   ],
   providers: [APP_PROVIDERS],
   bootstrap: [AppComponent]
