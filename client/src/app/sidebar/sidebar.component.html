@@ -1,21 +1,22 @@
-<div class="aside" id="aside-menu">
-	<div class="title clearfix">
-			<h1>我的导航</h1>
-			<a href="javascript:void(0)" title="收起" class="fold" id="menu-toggle">
-			</a>
+<div class="sidebar">
+	<div class="nav-wrapper">
+		<div class="title">
+				<span>我的导航</span>
+				<span id="event-monitor-operation" class="operation close icon-font"></span>
+		</div>
+		<ul class="content">
+			<li *ngFor="let item of sidemenu">
+				<a class="top" href="{{item.path}}">
+						<i class="fa fa-user"></i> {{item.title}}
+				</a>
+				<ul *ngIf="item.sub">
+					<li *ngFor="let subItem of item.sub">
+						<a href="{{subItem.path}}">
+							{{subItem.title}}
+						</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
 	</div>
-	<ul class="nav">
-		<li *ngFor="let item of sidemenu">
-			<a href="{{item.path}}">
-					<i class="fa fa-user"></i>{{item.title}}
-			</a>
-			<ul *ngIf="item.sub">
-				<li *ngFor="let subItem of item.sub">
-					<a href="{{subItem.path}}">
-						<i class="icon-font"></i>{{subItem.title}}
-					</a>
-				</li>
-			</ul>
-		</li>
-	</ul>
 </div>
