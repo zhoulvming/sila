@@ -10,20 +10,27 @@ var router = express.Router();
 // });
  
 
-router.get('/sila', function(req, res, next){
-  console.log('almost here......');
-  // paramters
-  var siteKey = req.params.siteKey;
+router.get('/setData', function(req, res, next){
+
+  console.log('request query data:');
+  console.log(req.query);
+
+  // var clientIP = req.headers['x-forwarded-for'] ||
+  //   req.connection.remoteAddress ||
+  //   req.socket.remoteAddress ||
+  //   req.connection.socket.remoteAddress;
+
+  console.log(getClientIp(req));
 
   // // insert data
   // connection.connect();
   // connection.query('insert into test (name ,degree) values ("lupeng" , 20)');
   // connection.end();
 
-  res.render('index.html');
+  res.json(req.query);
 });
 
-router.get('/sila/getData', function(){
+router.get('/getData', function(){
   // select data
   // connection.connect();
   // connection.query('select name ,degree from test', function(err, rows, fields) {
@@ -36,6 +43,20 @@ router.get('/sila/getData', function(){
   // });
   // connection.end();
 });
+
+
+var getClientIp = function(req) {
+    var ipAddress;
+    var forwardedIpsStr = req.header('x-forwarded-for'); 
+    if (forwardedIpsStr) {
+        var forwardedIps = forwardedIpsStr.split(',');
+        ipAddress = forwardedIps[0];
+    }
+    if (!ipAddress) {
+        ipAddress = req.connection.remoteAddress;
+    }
+    return ipAddress;
+};
 
 
 module.exports = router;
