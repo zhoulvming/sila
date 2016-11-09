@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var sila = require('./routes/sila');
 var user = require('./routes/user');
+var flow = require('./routes/flow');
 var port = 3000;
 var app = express();
 
@@ -23,7 +24,13 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use('/', index);
 app.use('/sila', sila);
 app.use('/user', user);
+app.use('/flow', flow);
 
-app.listen(port, function(){
-  console.log('Server started on port ' + port);
+var server = 
+  app.listen(port, function(){
+    console.log('Server started on port ' + port);
+  });
+
+server.once('listening', function(){
+  console.log('Server is running at http://127.0.0.1:3000/');
 });

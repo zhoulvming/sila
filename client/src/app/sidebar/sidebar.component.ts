@@ -16,11 +16,11 @@ export class SidebarComponent implements OnInit {
       icon: '',
       path: '#/home'
     }, {
-      title: '基本指标',
+      title: '流量分析',
       icon: '',
       sub: [{
-        title: '趋势分析',
-        path: 'home'
+        title: '每日统计（小时为单位）',
+        path: '#/flow/day'
       }, {
         title: '活跃用户',
         path: 'home'

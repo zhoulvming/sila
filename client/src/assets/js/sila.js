@@ -1,5 +1,9 @@
 (function () {
 
+	var currentURL = window.location.href;
+	console.log(currentURL);
+
+
 	// 第三方接口获取本地信息
 	var setLocalIpJS = function(){
     var ma = document.createElement('script'); ma.type = 'text/javascript'; ma.async = true;
@@ -47,9 +51,12 @@
 
 	// 延迟加载
 	setTimeout(function() {	
-		params.cid = window.returnCitySN.cid;
-		params.cip = window.returnCitySN.cip;
-		params.cname = window.returnCitySN.cname;
+		if (window.returnCitySN) {
+			params.cid = window.returnCitySN.cid;
+			params.cip = window.returnCitySN.cip;
+			params.cname = window.returnCitySN.cname;
+		}
+		
 
 		//拼接参数串
 		var args = '';
@@ -63,7 +70,8 @@
  		//通过Image对象请求后端脚本
 		var img = new Image(1, 1);
 		img.src = 'http://localhost:3000/sila/setData?' + args;
-	}, 200);
+
+	}, 500);
 	
 	
 })();
