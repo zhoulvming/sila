@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppState, InteralStateType, AppUtil } from './shared/services/app.service';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FlowComponent } from './flow/flow.component';
+import { FlowOverviewComponent } from './flowoverview/flowoverview.component';
+
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -22,7 +24,8 @@ const APP_PROVIDERS = [
     AppComponent,
     HomeComponent,
     SidebarComponent,
-    FlowComponent
+    FlowComponent,
+    FlowOverviewComponent
   ],
   imports: [
     BrowserModule,

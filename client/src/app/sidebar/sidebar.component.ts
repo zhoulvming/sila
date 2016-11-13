@@ -16,9 +16,12 @@ export class SidebarComponent implements OnInit {
       icon: '',
       path: '#/home'
     }, {
-      title: '流量分析',
+      title: '流量来源',
       icon: '',
       sub: [{
+        title: '概览',
+        path: '#/flow/overview'
+      }, {
         title: '每日统计（小时为单位）',
         path: '#/flow/day'
       }, {
@@ -31,6 +34,10 @@ export class SidebarComponent implements OnInit {
     }, {
       title: '用户分析',
       icon: '',
+      sub: [{
+        title: '百度用户',
+        path: '#/flow/day'
+      }]
     }, {
       title: '使用分析',
       icon: '',

@@ -20,4 +20,12 @@ export class FlowService {
       .catch(this.handleError);
   }
 
+  getPieData(): Promise<any> {
+    return this.http.get('http://localhost:3000/flow/getPieData').toPromise()
+      .then(response => {
+        return response.json();
+      })
+      .catch(this.handleError);
+  }
+
 }
