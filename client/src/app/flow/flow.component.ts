@@ -89,8 +89,8 @@ export class FlowComponent implements OnInit {
 
     //从服务器端获取数据
     this.flowService.getListData_Hour()
-      .then(lists => {
-        this.list = lists;
+      .then(list => {
+        this.list = list;
       })
       .catch(err => {});
 
