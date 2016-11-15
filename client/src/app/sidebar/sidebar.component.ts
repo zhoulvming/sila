@@ -12,6 +12,7 @@ export class SidebarComponent implements OnInit {
 
   constructor() { 
     this.sidemenu = [{
+      id: 'home_link',
       title: '应用概况',
       icon: '',
       path: '#/home'
@@ -19,6 +20,7 @@ export class SidebarComponent implements OnInit {
       title: '流量分析',
       icon: '',
       sub: [{
+        id:'flow_link',
         title: '每日统计（小时为单位）',
         path: '#/flow/day'
       }, {

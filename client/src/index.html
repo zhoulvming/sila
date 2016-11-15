@@ -7,10 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
-<body>
+<body class="test">
   <app-root>Loading...</app-root>
 </body>
-<script>
+<!--<script>
   var _maq = _maq || [];
   _maq.push(['_setAccount', '网站标识']);
   (function() {
@@ -18,14 +18,20 @@
     ma.src = ('https:' == document.location.protocol ? 'https://localhost:3000' : 'http://localhost:3000') + '/assets/js/sila.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ma, s);
   })();
+</script>-->
+
+
+<script>
+  var _maq = _maq || [];
+  _maq.push(['_account', '1']);
+  _maq.push(['_button', ['like_btn', 'hello_btn']]);
+  _maq.push(['_link', ['home_link', 'flow_link']]);
+  (function() {
+    var ta = document.createElement('script'); ta.type = 'text/javascript'; ta.async = true;
+    ta.src = ('https:' == document.location.protocol ? 'https://localhost:3000' : 'http://localhost:3000') + '/assets/js/ta.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ta, s);
+  })();
 </script>
 
-<!--<script>
-    (function() {
-      var qa = document.createElement('script');
-      qa.src = ('http://pv.sohu.com/cityjson?ie=utf-8');
-      var qs = document.getElementsByTagName('script')[2]; qs.parentNode.insertBefore(qa, qs);
-    })();
-</script>-->
 
 </html>

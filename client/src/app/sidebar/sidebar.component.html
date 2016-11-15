@@ -6,12 +6,12 @@
 		</div>
 		<ul class="content">
 			<li *ngFor="let item of sidemenu">
-				<a class="top" href="{{item.path}}">
+				<a class="top" href="{{item.path}}" id="{{item.id}}">
 						<i class="fa fa-user"></i> {{item.title}}
 				</a>
 				<ul *ngIf="item.sub">
 					<li *ngFor="let subItem of item.sub">
-						<a href="{{subItem.path}}">
+						<a href="{{subItem.path}}" id="{{subItem.id}}">
 							{{subItem.title}}
 						</a>
 					</li>
