@@ -13,7 +13,7 @@ export class FlowService {
 
 
   getListData_Hour(): Promise<any> {
-    return this.http.get('http://localhost:3000/flow/getListData_hour').toPromise()
+    return this.http.get('/flow/getListData_hour').toPromise()
       .then(response => {
         return response.json();
       })
@@ -27,7 +27,13 @@ export class FlowService {
       })
       .catch(this.handleError);
   }
-
+  getLineData1(): Promise<any> {
+    return this.http.get('/flow/getLineData1').toPromise()
+      .then(response => {
+        return response.json();
+      })
+      .catch(this.handleError);
+  }
   getListData1(): Promise<any> {
     return this.http.get('/flow/getListData1').toPromise()
       .then(response => {
@@ -42,5 +48,13 @@ export class FlowService {
       })
       .catch(this.handleError);
   }
+  getTop10ListData(): Promise<any> {
+    return this.http.get('/flow/getTop10ListData').toPromise()
+      .then(response => {
+        return response.json();
+      })
+      .catch(this.handleError);
+  }
+  
 
 }

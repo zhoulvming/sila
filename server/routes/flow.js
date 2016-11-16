@@ -43,7 +43,7 @@ router.get('/getPieData', function (req, res, next) {
 
 //搜索引擎   
 router.get('/getListData1', function (req, res, next) {
-   var testData = [{
+  var testData = [{
     se: 'baidu',
     uv: '123',
     pv: '168',
@@ -61,7 +61,7 @@ router.get('/getListData1', function (req, res, next) {
 
 //外部链接    直接访问
 router.get('/getListData2', function (req, res, next) {
-   var testData = [{
+  var testData = [{
     se: 'www.hao123.com ',
     uv: '123',
     pv: '168',
@@ -77,4 +77,34 @@ router.get('/getListData2', function (req, res, next) {
   res.json(testData);
 });
 
+router.get('/getLineData1', function (req, res, next) {
+  var option = echartdatatemplate.getLineOptionTemplate();
+
+
+  res.json(option);
+});
+
+
+router.get('/getTop10ListData', function (req, res, next) {
+  var testData = [{
+    keyword: '关键字a',
+    uv: '23',
+    pv: '54',
+    browsePageNum: '4',
+    avgStayTime: '5',
+    newVisitor: '6',
+    tcl: '23%'
+  }, {
+    keyword: '关键字b',
+    uv: '43',
+    pv: '74',
+    browsePageNum: '4',
+    avgStayTime: '5',
+    newVisitor: '6',
+    tcl: '43%'
+  }]
+
+
+  res.json(testData);
+});
 module.exports = router;
