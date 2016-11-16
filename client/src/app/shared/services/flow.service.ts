@@ -21,7 +21,22 @@ export class FlowService {
   }
 
   getPieData(): Promise<any> {
-    return this.http.get('http://localhost:3000/flow/getPieData').toPromise()
+    return this.http.get('/flow/getPieData').toPromise()
+      .then(response => {
+        return response.json();
+      })
+      .catch(this.handleError);
+  }
+
+  getListData1(): Promise<any> {
+    return this.http.get('/flow/getListData1').toPromise()
+      .then(response => {
+        return response.json();
+      })
+      .catch(this.handleError);
+  }
+  getListData2(): Promise<any> {
+    return this.http.get('/flow/getListData2').toPromise()
       .then(response => {
         return response.json();
       })

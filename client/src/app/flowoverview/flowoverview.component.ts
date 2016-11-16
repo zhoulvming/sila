@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
 
 import { FlowService } from '../shared/services/flow.service';
-import { Flow } from '../shared/models/flow';
+import { FlowList } from '../shared/models/flowList01';
 var es=require('echarts');
 
 @Component({
@@ -16,7 +16,8 @@ var es=require('echarts');
 export class FlowOverviewComponent implements OnInit {
 
 
-  public list: Flow[];
+  public list01: FlowList[];
+  public list02: FlowList[];
 
 
 
@@ -40,9 +41,31 @@ export class FlowOverviewComponent implements OnInit {
       .catch(err => { });
   }
 
+  public showList1(): void {
+    //从服务器端获取数据
+    this.flowService.getListData1()
+      .then(
+      data => {
+        this.list01 = data;
+       
+      })
+      .catch(err => { });
+  }
+  public showList2(): void {
+    //从服务器端获取数据
+    this.flowService.getListData2()
+      .then(
+      data => {
+        this.list02 = data;
+       
+      })
+      .catch(err => { });
+  }
+
   ngOnInit() {
     this.showPie();
-
+    this.showList1();
+this.showList2();
 
 
   }

@@ -32,37 +32,24 @@
             <div class="tab-content">
               <div id="ssyq" class="tab-pane active">
 
-                <table class="table table-striped table-advance table-hover">
-                  <thead>
-                    <tr>
-                      <th><i class="icon-bullhorn"></i> 搜索引擎</th>
-                      <th class="hidden-phone"><i class="icon-question-sign"></i> UV</th>
-                      <th><i class="icon-bookmark"></i> PV</th>
-                      <th><i class=" icon-edit"></i> 跳出率</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        百度
-                      </td>
-                      <td class="hidden-phone">1000</td>
-                      <td>500</td>
-                      <td>30%</td>
-
-                    </tr>
-
-                    <tr>
-                      <td>
-                        搜狗
-                      </td>
-                      <td class="hidden-phone">1000</td>
-                      <td>500</td>
-                      <td>30%</td>
-
-                    </tr>
-                  </tbody>
-                </table>
+                <table class="table">
+  <thead>
+    <tr>
+        <th class="text-center" >搜索引擎</th>
+        <th class="text-center" >UV</th>
+        <th class="text-center">PV</th>
+        <th class="text-center">跳出率</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of list01">
+        <td class="text-center" >{{item.se}}</td>
+        <td class="text-center" >{{item.uv}}</td>
+        <td class="text-center" >{{item.pv}}</td>
+        <td class="text-center" >{{item.tcl}}</td>
+    </tr>
+  </tbody>
+</table>
 
 
               </div>
@@ -70,37 +57,24 @@
 
               <div id="wblj" class="tab-pane">
 
-                <table class="table table-striped table-advance table-hover">
-                  <thead>
-                    <tr>
-                      <th><i class="icon-bullhorn"></i> 外部链接</th>
-                      <th class="hidden-phone"><i class="icon-question-sign"></i> UV</th>
-                      <th><i class="icon-bookmark"></i> PV</th>
-                      <th><i class=" icon-edit"></i> 跳出率</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        www.hao123.com
-                      </td>
-                      <td class="hidden-phone">1000</td>
-                      <td>500</td>
-                      <td>30%</td>
-
-                    </tr>
-
-                    <tr>
-                      <td>
-                        www.zhihu.com
-                      </td>
-                      <td class="hidden-phone">1000</td>
-                      <td>500</td>
-                      <td>30%</td>
-
-                    </tr>
-                  </tbody>
-                </table>
+                <table class="table">
+  <thead>
+    <tr>
+        <th class="text-center" >外部链接</th>
+        <th class="text-center" >UV</th>
+        <th class="text-center">PV</th>
+        <th class="text-center">跳出率</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of list02">
+        <td class="text-center" >{{item.se}}</td>
+        <td class="text-center" >{{item.uv}}</td>
+        <td class="text-center" >{{item.pv}}</td>
+        <td class="text-center" >{{item.tcl}}</td>
+    </tr>
+  </tbody>
+</table>
 
 
               </div>

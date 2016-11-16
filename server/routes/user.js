@@ -19,6 +19,7 @@ router.get('/queryAll', function(req, res, next) {
 });
 
 router.get('/query', function(req, res, next) {
+	//console.log('-------ssss-------------');
 	userDao.queryById(req, res, next);
 });
 

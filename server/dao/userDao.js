@@ -93,6 +93,7 @@ module.exports = {
 
 	},
 	queryById: function (req, res, next) {
+		//console.log(req.query.id);
 		var id = +req.query.id; // 为了拼凑正确的sql语句，这里要转下整数
 		pool.getConnection(function(err, connection) {
 			connection.query($sql.queryById, id, function(err, result) {

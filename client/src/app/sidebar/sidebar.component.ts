@@ -12,12 +12,12 @@ export class SidebarComponent implements OnInit {
 
   constructor() { 
     this.sidemenu = [{
-      title: '应用概况',
-      icon: '',
+      title: '首页',
+      icon: 'icon-dashboard',
       path: '#/home'
     }, {
       title: '流量来源',
-      icon: '',
+      icon: 'icon-book',
       sub: [{
         title: '概览',
         path: '#/flow/overview'
@@ -25,10 +25,13 @@ export class SidebarComponent implements OnInit {
         title: '每日统计（小时为单位）',
         path: '#/flow/day'
       }, {
-        title: '活跃用户',
+        title: '搜索引擎',
         path: 'home'
       }, {
-        title: '留存用户',
+        title: '外部链接',
+        path: 'home'
+      }, {
+        title: '直接访问',
         path: 'home'
       }]
     }, {
