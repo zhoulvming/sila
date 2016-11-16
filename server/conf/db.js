@@ -4,7 +4,7 @@ module.exports = {
 		host: 'localhost', 
 		user: 'root',
 		password: '',
-		database:'digtal',
+		database:'sila',
 		port: 3306
 	}
 };
