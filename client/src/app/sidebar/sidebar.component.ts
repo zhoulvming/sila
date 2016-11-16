@@ -14,11 +14,13 @@ export class SidebarComponent implements OnInit {
     this.sidemenu = [{
       title: '首页',
       icon: 'icon-dashboard',
+      id: 'home_link',
       path: '#/home'
     }, {
       title: '流量来源',
       icon: 'icon-book',
       sub: [{
+        id:'flow_link',
         title: '概览',
         path: '#/flow/overview'
       }, {

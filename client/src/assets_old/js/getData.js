@@ -4,7 +4,7 @@
 var statIdName = "vlstatId";
 var xmlHttp;
 /**
-* 设置cookieId
+* 设置cookie
 */
 function setCookie(c_name, value, expiredays) {
  var exdate = new Date();
@@ -12,7 +12,7 @@ function setCookie(c_name, value, expiredays) {
  document.cookie = c_name + "=" + escape(value) + ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString()) + ";path=/;domain=cecb2b.com";
 }
 /**
-* 获取cookieId
+* 获取cookie
 */
 function getCookie(c_name) {
  if (document.cookie.length > 0) {
