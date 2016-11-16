@@ -20,13 +20,10 @@ export class SidebarComponent implements OnInit {
       title: '流量来源',
       icon: '',
       sub: [{
-<<<<<<< HEAD
         id:'flow_link',
-=======
         title: '概览',
         path: '#/flow/overview'
       }, {
->>>>>>> origin/master
         title: '每日统计（小时为单位）',
         path: '#/flow/day'
       }, {
