@@ -19,8 +19,9 @@
       "mobile": false,
       "styles": [
         "styles.scss",
-        "app-theme.scss",
-        "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+        "styles-responsive.scss",
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../node_modules/font-awesome/css/font-awesome.css"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",

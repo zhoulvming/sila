@@ -1,22 +1,79 @@
-<div class="sidebar">
-	<div class="nav-wrapper">
-		<div class="title">
-				<span>我的导航</span>
-				<span id="event-monitor-operation" class="operation close icon-font"></span>
-		</div>
-		<ul class="content">
-			<li *ngFor="let item of sidemenu">
-				<a class="top" href="{{item.path}}" id="{{item.id}}">
-						<i class="fa fa-user"></i> {{item.title}}
+<aside>
+	<div id="sidebar"  class="nav-collapse ">
+		<ul class="sidebar-menu">
+			<li>
+				<a class="" href="#/home" id="home_link">
+					<i class="icon-dashboard"></i>
+					<span>首页</span>
 				</a>
-				<ul *ngIf="item.sub">
-					<li *ngFor="let subItem of item.sub">
-						<a href="{{subItem.path}}" id="{{subItem.id}}">
-							{{subItem.title}}
-						</a>
-					</li>
+			</li>
+			<li class="sub-menu active">
+				<a href="javascript:;" class="">
+					<i class="icon-book"></i>
+					<span>浏览来源</span>
+					<span class="arrow"></span>
+				</a>
+				<ul class="sub">
+					<li ><a href="#/flow/overview">概览</a></li>
+					<li class="active"><a class="" href="01_01.html">搜索引擎</a></li>
+					<li><a class="" href="01_02.html">外部链接</a></li>
+					<li><a class="" href="01_03.html">直接访问</a></li>
+				</ul>
+			</li>
+			<li class="sub-menu">
+				<a href="javascript:;" class="">
+					<i class="icon-cogs"></i>
+					<span>网页数据</span>
+					<span class="arrow"></span>
+				</a>
+				<ul class="sub">
+					<li><a class="" href="02_00.html">概览</a></li>
+					<li><a class="" href="02_01.html">分页数据</a></li>
+					<li><a class="" href="02_03.html">着陆页</a></li>
+					<li><a class="" href="02_02.html">退出页</a></li>
+				</ul>
+			</li>
+			<li class="sub-menu">
+				<a href="javascript:;" class="">
+					<i class="icon-tasks"></i>
+					<span>用户属性</span>
+					<span class="arrow"></span>
+				</a>
+				<ul class="sub">
+					<li><a class="" href="04_00.html">概览</a></li>
+					<li><a class="" href="04_02.html">地区</a></li>
+					<li><a class="" href="04_03.html">浏览器</a></li>
+					<li><a class="" href="04_05.html">设备</a></li>
+					<li><a class="" href="04_01.html">操作系统</a></li>
+					<li><a class="" href="04_04.html">屏幕分辨率</a></li>
+				</ul>
+			</li>
+			<li class="sub-menu">
+				<a href="javascript:;" class="">
+					<i class="icon-th"></i>
+					<span>用户行为</span>
+					<span class="arrow"></span>
+				</a>
+				<ul class="sub">
+					<li><a class="" href="03_01.html">检测地图首页</a></li>
+					<li><a class="" href="03_03.html">热力图详情页</a></li>
+					<li><a class="" href="03_02.html">链接点击图详情页</a></li>
+					<li><a class="" href="03_05.html">用户流向</a></li>
+					<li><a class="" href="03_04.html">新/回访客</a></li>
+					<li><a class="" href="03_00.html">访问频率</a></li>
+				</ul>
+			</li>
+			<li class="sub-menu">
+				<a class="" href="javascript:;">
+					<i class="icon-envelope"></i>
+					<span>账号管理 </span>
+					<span class="arrow"></span>
+				</a>
+				<ul class="sub">
+					<li><a class="" href="05_02.html">权限分配</a></li>
+					<li><a class="" href="05_00.html">监测账号管理</a></li>
 				</ul>
 			</li>
 		</ul>
 	</div>
-</div>
+</aside>
