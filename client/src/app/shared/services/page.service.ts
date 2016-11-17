@@ -1,0 +1,26 @@
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/toPromise';
+
+@Injectable()
+export class PageService {
+  constructor(public http: Http) { }
+
+  private handleError(error: any): Promise<any> {
+    console.error('An service error occurred', error); // for demo purposes only
+    return Promise.reject(error.message || error);
+  }
+
+
+  
+  getLineData(): Promise<any> {
+    return this.http.get('/page/getLineData').toPromise()
+      .then(response => {
+        return response.json();
+      })
+      .catch(this.handleError);
+  }
+  
+  
+
+}

@@ -6,6 +6,7 @@ var index = require('./routes/index');
 var sila = require('./routes/sila');
 var user = require('./routes/user');
 var flow = require('./routes/flow');
+var page = require('./routes/page');
 var port = 3000;
 var app = express();
 
@@ -25,6 +26,7 @@ app.use('/', index);
 app.use('/sila', sila);
 app.use('/user', user);
 app.use('/flow', flow);
+app.use('/page', page);
 
 var server = 
   app.listen(port, function(){

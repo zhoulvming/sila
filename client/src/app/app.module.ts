@@ -12,7 +12,7 @@ import { AppState, InteralStateType, AppUtil } from './shared/services/app.servi
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FlowComponent } from './flow/flow.component';
 import { FlowOverviewComponent } from './flowoverview/flowoverview.component';
-
+import { PageOverviewComponent } from './pageoverview/pageoverview.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -25,7 +25,8 @@ const APP_PROVIDERS = [
     HomeComponent,
     SidebarComponent,
     FlowComponent,
-    FlowOverviewComponent
+    FlowOverviewComponent,
+    PageOverviewComponent
   ],
   imports: [
     BrowserModule,

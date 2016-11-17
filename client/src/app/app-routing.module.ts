@@ -3,12 +3,14 @@ import { Routes, RouterModule }   from '@angular/router';
 import { HomeComponent } from './home';
 import { FlowComponent } from './flow/flow.component';
 import { FlowOverviewComponent } from './flowoverview/flowoverview.component';
+import { PageOverviewComponent } from './pageoverview/pageoverview.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'home', component: HomeComponent },
     { path: 'flow/day', component: FlowComponent },
     { path: 'flow/overview', component: FlowOverviewComponent },
+    { path: 'page/overview', component: PageOverviewComponent },
     // { path: '**',    component: NoContent }
 ];
 
