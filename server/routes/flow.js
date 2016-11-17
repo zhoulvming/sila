@@ -77,8 +77,8 @@ router.get('/getListData2', function (req, res, next) {
   res.json(testData);
 });
 
-router.get('/getLineData1', function (req, res, next) {
-  var option = echartdatatemplate.getLineOptionTemplate();
+router.get('/getBarData1', function (req, res, next) {
+  var option = echartdatatemplate.getBarOptionTemplate();
 
 
   res.json(option);

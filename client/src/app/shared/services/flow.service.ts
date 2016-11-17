@@ -27,8 +27,8 @@ export class FlowService {
       })
       .catch(this.handleError);
   }
-  getLineData1(): Promise<any> {
-    return this.http.get('/flow/getLineData1').toPromise()
+  getBarData1(): Promise<any> {
+    return this.http.get('/flow/getBarData1').toPromise()
       .then(response => {
         return response.json();
       })

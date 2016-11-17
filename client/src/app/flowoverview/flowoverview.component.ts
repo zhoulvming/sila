@@ -44,13 +44,13 @@ export class FlowOverviewComponent implements OnInit {
       .catch(err => { });
   }
 
-  public showLine1(): void {
+  public showBar1(): void {
     //从服务器端获取数据
-    this.flowService.getLineData1()
+    this.flowService.getBarData1()
       .then(
 
       data => {
-        var dom = document.getElementById("line1");
+        var dom = document.getElementById("bar1");
         var myChart = es.init(dom);
         var option = data;
         myChart.setOption(option, true);
@@ -93,7 +93,7 @@ export class FlowOverviewComponent implements OnInit {
     this.showPie();
     this.showList1();
     this.showList2();
-    this.showLine1();
+    this.showBar1();
     this.showTop10List();
 
   }
