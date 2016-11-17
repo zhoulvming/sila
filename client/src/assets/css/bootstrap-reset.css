@@ -303,11 +303,7 @@ ul {
     box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.05) inset;
 }
 
-/*breadcrumbs*/
 
-.breadcrumb {
-    background-color: #fff;
-}
 
 
 /*tab*/
@@ -407,4 +403,9 @@ ul {
     padding: 10px;
 }
 
+
+/* tool style */
+.text-right {
+    text-align: right;
+}
 

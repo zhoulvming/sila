@@ -18,15 +18,17 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "styles.scss",
-        "styles-responsive.scss",
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
-        "../node_modules/font-awesome/css/font-awesome.css"
+        "../node_modules/font-awesome/css/font-awesome.css",
+        "styles.scss",
+        "styles-responsive.scss"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
         "../node_modules/tether/dist/js/tether.min.js",
-        "../node_modules/bootstrap/dist/js/bootstrap.min.js"
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js",
+        "../src/assets/plugins/jquery.nicescroll.js",
+        "../src/assets/plugins/jquery.scrollTo.min.js"
       ],
       "environments": {
         "source": "environments/environment.ts",
