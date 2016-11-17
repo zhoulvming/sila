@@ -18,9 +18,9 @@ CREATE TABLE sila_log_visit (
   cid varchar(10),
   cname varchar(50),
   cip varchar(20),
-  start_time timestamp NULL DEFAULT NUL,
-  leave_time timestamp NULL DEFAULT NUL,
-  PRIMARY KEY (id),
+  start_time timestamp NULL DEFAULT NULL,
+  leave_time timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='页面访问表'  
 
 CREATE TABLE sila_event (
@@ -29,5 +29,5 @@ CREATE TABLE sila_event (
   event_name varchar(50),
   event_time timestamp,
   target_id varchar(50),
-  PRIMARY KEY (id),
+  PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='事件统计表'
