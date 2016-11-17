@@ -4,11 +4,16 @@ import { HomeComponent } from './home';
 import { FlowComponent } from './flow/flow.component';
 import { FlowOverviewComponent } from './flowoverview/flowoverview.component';
 
+// here is project component --- start
+import { ASOverviewComponent } from './access-source/overview.component';
+// here is project component --- end
+
+
 const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'home', component: HomeComponent },
-    { path: 'flow/day', component: FlowComponent },
-    { path: 'flow/overview', component: FlowOverviewComponent },
+    { path: 'access-source/overview', component: ASOverviewComponent },
+    
     // { path: '**',    component: NoContent }
 ];
 

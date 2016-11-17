@@ -28,7 +28,8 @@
         "../node_modules/tether/dist/js/tether.min.js",
         "../node_modules/bootstrap/dist/js/bootstrap.min.js",
         "../src/assets/plugins/jquery.nicescroll.js",
-        "../src/assets/plugins/jquery.scrollTo.min.js"
+        "../src/assets/plugins/jquery.scrollTo.min.js",
+        "../src/assets/js/common.js"
       ],
       "environments": {
         "source": "environments/environment.ts",

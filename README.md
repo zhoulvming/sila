@@ -11,7 +11,15 @@ SILA
 │    ├─── dist                              // 编译后输出目录
 │    ├─── src                               // 代码目录
 │    │    ├─── app                          // 项目代码
+│    │    │    ├─── shared                  // 共享目录
+│    │    │    │    ├─── models                  // model
+│    │    │    │    ├─── services                // service（与后台交互）
+│    │    │    │    │    ├─── access-source.service.ts  // 访问来源service
 │    │    │    ├─── access-source           // 访问来源页面目录
+│    │    │    │    ├─── overview.component.*     //概览
+│    │    │    │    ├─── searchEngine.component.* //搜索引擎
+│    │    │    │    ├─── referrer.component.*     //外部练级
+│    │    │    │    ├─── overview.component.*     //直接访问
 │    │    │    ├─── page-info               // 网页数据页面目录
 │    │    │    ├─── user-info               // 用户属性页面目录
 │    │    │    ├─── user-behaviour          // 用户行为页面目录
@@ -22,6 +30,8 @@ SILA
 │    │    ├─── assets                       // 项目应用的外部资源
 │    │    │    ├─── css                     // 项目自己的样式
 │    │    │    ├─── js                      // 项目自己的js
+│    │    │    │    ├─── app.js                      // 项目app.js
+│    │    │    │    ├─── common.js                   // 项目共通js
 │    │    │    ├─── img                     // 图片
 │    │    │    ├─── plugins                 // 第三方插件（也可以通过npm放在node_modules目录下面，一般放置比较简单单个文件的插件）
 │    │    ├─── environments                 // 无视
@@ -35,7 +45,10 @@ SILA
 ├─── server               // 服务器端代码  
 │    ├─── conf            // 配置目录
 │    ├─── dao             // 数据库访问DAO（包含service和sql）
+│    │    ├─── access-source.Dao.js          // 访问来源Dao
+│    │    ├─── access-source.Sql.js          // 访问来源Sql
 │    ├─── routes          // 所有业务接口逻辑
+│    │    ├─── access-source.js          // 访问来源业务接口
 │    ├─── db.sql          // 数据库DDL
 │    ├─── server.js       // 入口文件
 

@@ -14,6 +14,12 @@ import { FlowComponent } from './flow/flow.component';
 import { FlowOverviewComponent } from './flowoverview/flowoverview.component';
 
 
+// here is project component --- start
+import { ASOverviewComponent } from './access-source/overview.component';
+// here is project component --- end
+
+
+
 // Application wide providers
 const APP_PROVIDERS = [
   AppState, AppUtil
@@ -25,7 +31,8 @@ const APP_PROVIDERS = [
     HomeComponent,
     SidebarComponent,
     FlowComponent,
-    FlowOverviewComponent
+    FlowOverviewComponent,
+    ASOverviewComponent
   ],
   imports: [
     BrowserModule,
