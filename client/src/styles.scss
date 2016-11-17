@@ -5,12 +5,12 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
 
 body {
-    color: #797979;
-    background: #f1f2f7;
-    font-family: 'Open Sans', sans-serif;
+    color: #797979 !important;
+    background: #f1f2f7 !important;
+    font-family: 'Open Sans', sans-serif !important;
     padding: 0px !important;
     margin: 0px !important;
-    font-size:13px;
+    font-size:13px !important;
 }
 
 ul li {
@@ -18,8 +18,8 @@ ul li {
 }
 
 a, a:hover, a:focus {
-    text-decoration: none;
-    outline: none;
+    text-decoration: none !important;
+    outline: none !important;
 }
 
 ::selection {
