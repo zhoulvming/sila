@@ -55,12 +55,16 @@ SILA
 ```
 
 ### 数据库设计
+
+```
 TABLE sila_site: 站点表(即客户表，使用我们产品的站点)
   id int(10)            : 自动生成（主键）
   name varchar(90)      : 站点名称
   main_url varchar(255) : 站点主URL(考虑其不同域名的场合)
   created timestamp     : 客户注册埋点的时间
+```
 
+```
 TABLE sila_log_visit: 页面访问表
   id int(10)            : 自动生成（主键）
   idsite                : 站点表外键
@@ -75,10 +79,13 @@ TABLE sila_log_visit: 页面访问表
   cip                   : IP地址  
   start_time            : 来访时间
   leave_time            : 离开时间
+```
 
+```
 TABLE sila_event: 事件统计表
   id int(10)            : 自动生成（主键）
   event_type            : 事件类型（按钮点击，链接点击，其它）
   event_name            : 事件名称
   event_time            : 发生时间
   target_id             : 目标的DOM ID
+```
