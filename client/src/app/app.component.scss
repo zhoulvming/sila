@@ -7,3 +7,16 @@
 .main {
   margin-top: 54px;
 }
+
+footer {
+  position: fixed;
+  color: #8b9199;
+  background-color: #35404d;
+  height: 28px;
+  line-height: 28px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  text-align: center;
+}
