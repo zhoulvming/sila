@@ -1,10 +1,11 @@
-# 客户端启动方式
+### 客户端启动方式
 > ng build --watch
 
-# 服务器端启动方式
+### 服务器端启动方式
 > nodemon
 
-# 工程目录结构说明
+### 工程目录结构说明
+```
 SILA
 ├─── README.md                              // 项目说明文档（包含一部分设计内容）
 ├─── client                                 // 客户端代码
@@ -42,17 +43,18 @@ SILA
 │    │    ├─── styles-responsive.scss       // 全局样式，在angular-cli.json文件中被引用
 │    │
 │    │
-├─── server               // 服务器端代码  
-│    ├─── conf            // 配置目录
-│    ├─── dao             // 数据库访问DAO（包含service和sql）
-│    │    ├─── access-source.Dao.js          // 访问来源Dao
-│    │    ├─── access-source.Sql.js          // 访问来源Sql
-│    ├─── routes          // 所有业务接口逻辑
-│    │    ├─── access-source.js          // 访问来源业务接口
-│    ├─── db.sql          // 数据库DDL
-│    ├─── server.js       // 入口文件
+├─── server                                   // 服务器端代码  
+│    ├─── conf                                // 配置目录
+│    ├─── dao                                 // 数据库访问DAO（包含service和sql）
+│    │    ├─── access-source.Dao.js           // 访问来源Dao
+│    │    ├─── access-source.Sql.js           // 访问来源Sql
+│    ├─── routes                              // 所有业务接口逻辑
+│    │    ├─── access-source.js               // 访问来源业务接口
+│    ├─── db.sql                              // 数据库DDL
+│    ├─── server.js                           // 服务器端入口文件
+```
 
-# 数据库设计
+### 数据库设计
 TABLE sila_site: 站点表(即客户表，使用我们产品的站点)
   id int(10)            : 自动生成（主键）
   name varchar(90)      : 站点名称
