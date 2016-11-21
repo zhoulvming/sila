@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var visterLogDao = require('../dao/visterLogDao');
+var visterLogDao = require('../dao/log-visit.dao');
  
 
 router.get('/setData', function(req, res, next){
