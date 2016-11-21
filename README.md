@@ -84,6 +84,8 @@ TABLE sila_log_visit: 页面访问表
 ```
 TABLE sila_event: 事件统计表
   id int(10)            : 自动生成（主键）
+  idsite                : 站点表外键
+  page_url              : 页面URL
   event_type            : 事件类型（按钮点击，链接点击，其它）
   event_name            : 事件名称
   event_time            : 发生时间

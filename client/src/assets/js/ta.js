@@ -79,7 +79,7 @@
               "$(document).ready(function(){"
               + "$('#" + btnId + "').on('click', function(){"
               + "var img = new Image();"
-              + "var args = 'button_click=" + btnId + "';"
+              + "var args = 'button_click=" + btnId + "&account=" + params.account + "&page_url=" + window.location.href + "';"
               + "img.src = 'http://localhost:3000/sila/buttonClick?' + args;"
               + "});"
               + "});";

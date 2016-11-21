@@ -24,7 +24,7 @@ router.get('/buttonClick', function(req, res, next){
 
 
 router.get('/visterLog', function(req, res, next) {
-	//visterLogDao.addLog(req, res, next);
+	// visterLogDao.addLog(req, res, next);
   console.log(req.query);
 });
 

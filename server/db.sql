@@ -25,6 +25,8 @@ CREATE TABLE sila_log_visit (
 
 CREATE TABLE sila_event (
   id int(10) unsigned NOT NULL AUTO_INCREMENT,
+  idsite int(10) unsigned,
+  page_url varchar(255),
   event_type int(2) unsigned,
   event_name varchar(50),
   event_time timestamp,
