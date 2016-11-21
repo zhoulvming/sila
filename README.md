@@ -50,6 +50,8 @@ SILA
 │   │   ├── access-source.Sql.js                    // 访问来源Sql
 │   │   ├── log-visit.dao.js                        // 页面访问表 Dao
 │   │   ├── log-visit.sql.js                        // 页面访问表 Sql
+│   │   ├── event.dao.js                            // 页面事件统计表 Dao
+│   │   ├── event.sql.js                            // 页面事件统计表 Sql
 │   ├── routes                                      // 所有业务接口逻辑
 │   │   ├── access-source.js                        // 访问来源业务接口
 │   ├── db.sql                                      // 数据库DDL
@@ -88,7 +90,7 @@ TABLE sila_event: 事件统计表
   id int(10)            : 自动生成（主键）
   idsite                : 站点表外键
   page_url              : 页面URL
-  event_type            : 事件类型（按钮点击，链接点击，其它）
+  event_type            : 事件类型（按钮点击，链接点击，其它:1/2/3）
   event_name            : 事件名称
   event_time            : 发生时间
   target_id             : 目标的DOM ID
