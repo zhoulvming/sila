@@ -48,6 +48,8 @@ SILA
 │   ├── dao                                         // 数据库访问DAO（包含service和sql）
 │   │   ├── access-source.Dao.js                    // 访问来源Dao
 │   │   ├── access-source.Sql.js                    // 访问来源Sql
+│   │   ├── log-visit.dao.js                        // 页面访问表 Dao
+│   │   ├── log-visit.sql.js                        // 页面访问表 Sql
 │   ├── routes                                      // 所有业务接口逻辑
 │   │   ├── access-source.js                        // 访问来源业务接口
 │   ├── db.sql                                      // 数据库DDL
