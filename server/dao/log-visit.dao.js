@@ -1,6 +1,6 @@
 var mysql = require('mysql');
 var $conf = require('../conf/db');
-var $sql = require('./visterLogSql');
+var $sql = require('./log-visit.sql');
 
 // 使用连接池，提升性能
 var pool  = mysql.createPool({

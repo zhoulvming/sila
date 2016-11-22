@@ -269,7 +269,7 @@ a.logo span {
 .notify-row {
     float: left;
     margin-top: 15px;
-    margin-left: 65px;
+    margin-left: 108px;
 }
 
 ul.top-menu > li > a {
@@ -482,6 +482,12 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
     background: none;
     margin-right: 0;
 }
+
+
+.top-nav ul.top-menu {
+    padding-top: 9px;
+}
+
 .top-nav ul.top-menu > li {
     margin-left: 10px;
 }
@@ -3851,3 +3857,5 @@ a.panel:hover{
     font-weight: normal;
     margin-left: 20px;
 }
+
+

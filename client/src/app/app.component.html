@@ -3,27 +3,50 @@
     <div class="sidebar-toggle-box">
       <div data-original-title="Toggle Navigation" data-placement="right" class="icon-reorder tooltips"></div>
     </div>
-    <!--logo start-->
-    <a href="#" class="logo">Analyse System</a>
-    <!--logo end-->
-
+    <a href="#" class="logo">Sila</a>
+    
     <div class="nav notify-row" id="top_menu">
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown button
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </div>
-    </div>
+      <ul class="nav top-menu">
 
+        <!--埋点网站信息-->
+        <li class="dropdown">
+          <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+            <i class="fa fa-tasks"></i>
+            <span>wwww.baidu.com</span>
+          </a>
+          <ul class="dropdown-menu extended tasks-bar">
+            <div class="notify-arrow notify-arrow-green"></div>
+            <li>
+              <p class="green"></p>
+            </li>
+            <li>
+              <a href="#">
+                <span class="label label-danger"><i class="fa fa-bolt"></i></span> www.baidu.com
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="label label-danger"><i class="fa fa-bolt"></i></span> www.baidu.com
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="label label-danger"><i class="fa fa-bolt"></i></span> www.baidu.com
+              </a>
+            </li>            
+          </ul>
+        </li>
+
+        <!--时间区间信息-->
+        <li style="width: 180px;">
+          <input type="text" id="date-range" class="form-control form-control-sm">
+        </li>
+      </ul>
+    </div>
+   
+    <!--登录信息-->
     <div class="top-nav">
-      <!-- user info start-->
       <ul class="nav pull-right top-menu">       
-        <!-- user login dropdown start-->
         <li class="dropdown">
           <a data-toggle="dropdown" class="dropdown-toggle" href="#">
             <img alt="" src="assets/img/avatar1_small.jpg">
@@ -38,10 +61,10 @@
             <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
           </ul>
         </li>
-        <!-- user login dropdown end -->
       </ul>
-      <!--search & user info end-->
     </div>
+
+
   </header>
   <app-sidebar></app-sidebar>
   <section id="main-content">
@@ -51,8 +74,8 @@
         <li class="breadcrumb-item active">Library</li>
       </ol>
       <router-outlet></router-outlet>
-      <footer class="navbar-fixed-bottom">
-        <div  class="" align="center" style="background-color:#f1f2f7;height:30px;">Infosys用户体验综合分析平台 &nbsp;&nbsp;   &nbsp;&nbsp; Infosys Digital Experience Analysis System</div>
+      <footer>
+        <span>Infosys用户体验综合分析平台 &nbsp;&nbsp;   &nbsp;&nbsp; Infosys Digital Experience Analysis System</span>
 		  </footer>
     </section>
   </section>

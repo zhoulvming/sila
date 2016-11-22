@@ -124,4 +124,14 @@ var Script = function () {
 
 
 
+// daterangepicker
+    $('#date-range').daterangepicker({
+        "startDate": "11/12/2016",
+        "endDate": "11/18/2016"
+    }, function(start, end, label) {
+    console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
+    });
+
+
+
 }();
