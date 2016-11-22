@@ -100,7 +100,7 @@
 
   /////////////////////////////////// 页面访问数据 ////////////////////////////////////////////////
   	
-  // 第三方接口获取本地信息
+  // 第三方接口获取本地信息（下面这段脚本执行后会返回window.returnCitySN这样的对象，由于有ajax请求，所以放在setTimeout函数中来延时获取）
 	var setLocalIpJS = function(){
     var ma = document.createElement('script'); ma.type = 'text/javascript'; ma.async = true;
     ma.src = 'http://pv.sohu.com/cityjson?ie=utf-8';
