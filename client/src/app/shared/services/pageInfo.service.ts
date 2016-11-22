@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
-export class PageService {
+export class PageInfoService {
   constructor(public http: Http) { }
 
   private handleError(error: any): Promise<any> {
@@ -14,7 +14,7 @@ export class PageService {
 
   
   getLineData(): Promise<any> {
-    return this.http.get('/page/getLineData').toPromise()
+    return this.http.get('/pageInfo/getLineData').toPromise()
       .then(response => {
         return response.json();
       })

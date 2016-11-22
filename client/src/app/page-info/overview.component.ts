@@ -1,36 +1,34 @@
 import { Component, OnInit } from '@angular/core';
-import { AccessSourceService } from '../shared/services/accessSource.service';
-import { FlowList } from '../shared/models/flowList01';
-import { FlowTop10Item } from '../shared/models/flowList01';
+import { PageInfoService } from '../shared/services/pageInfo.service';
+//import { FlowList } from '../shared/models/flowList01';
+//import { FlowTop10Item } from '../shared/models/flowList01';
 var es = require('echarts');
 
 @Component({
   selector: 'app-flow',
   templateUrl: './overview.component.html',
   providers: [
-    AccessSourceService
+    PageInfoService
   ],
 })
 export class PGOverviewComponent implements OnInit {
-  public list01: FlowList[];
-  public list02: FlowList[];
-  public top10List:FlowTop10Item[];
+ 
 
 
 
 
 
-  constructor(public flowService: AccessSourceService) {
+  constructor(public pageInfoService: PageInfoService) {
 
   }
 
-  public showPie(): void {
+  public showLine(): void {
     //从服务器端获取数据
-    this.flowService.getPieData()
+    this.pageInfoService.getLineData()
       .then(
 
       data => {
-        var dom = document.getElementById("pie01");
+        var dom = document.getElementById("line1");
         var myChart = es.init(dom);
         var option = data;
         myChart.setOption(option, true);
@@ -38,57 +36,12 @@ export class PGOverviewComponent implements OnInit {
       .catch(err => { });
   }
 
-  public showBar1(): void {
-    //从服务器端获取数据
-    this.flowService.getBarData1()
-      .then(
+  
 
-      data => {
-        var dom = document.getElementById("bar1");
-        var myChart = es.init(dom);
-        var option = data;
-        myChart.setOption(option, true);
-      })
-      .catch(err => { });
-  }
-
-  public showList1(): void {
-    //从服务器端获取数据
-    this.flowService.getListData1()
-      .then(
-      data => {
-        this.list01 = data;
-
-      })
-      .catch(err => { });
-  }
-  public showList2(): void {
-    //从服务器端获取数据
-    this.flowService.getListData2()
-      .then(
-      data => {
-        this.list02 = data;
-
-      })
-      .catch(err => { });
-  }  
-  public showTop10List(): void {
-    //从服务器端获取数据
-    this.flowService.getTop10ListData()
-      .then(
-      data => {
-        this.top10List = data;
-
-      })
-      .catch(err => { });
-  }  
-
+  
   ngOnInit() {
-    this.showPie();
-    this.showList1();
-    this.showList2();
-    this.showBar1();
-    this.showTop10List();
+    this.showLine();
+   
 
   }
 }
