@@ -18,8 +18,8 @@ SILA
 │    │    │    ├─── access-source           // 访问来源页面目录
 │    │    │    │    ├─── overview.component.*     //概览
 │    │    │    │    ├─── searchEngine.component.* //搜索引擎
-│    │    │    │    ├─── referrer.component.*     //外部练级
-│    │    │    │    ├─── overview.component.*     //直接访问
+│    │    │    │    ├─── referrer.component.*     //外部链接
+│    │    │    │    ├─── directAccess.component.*     //直接访问
 │    │    │    ├─── page-info               // 网页数据页面目录
 │    │    │    ├─── user-info               // 用户属性页面目录
 │    │    │    ├─── user-behaviour          // 用户行为页面目录

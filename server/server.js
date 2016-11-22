@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var sila = require('./routes/sila');
 var user = require('./routes/user');
-var flow = require('./routes/flow');
+var accessSource = require('./routes/access-source');
 var page = require('./routes/page');
 var port = 3000;
 var app = express();
@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use('/', index);
 app.use('/sila', sila);
 app.use('/user', user);
-app.use('/flow', flow);
+app.use('/accessSource', accessSource);
 app.use('/page', page);
 
 var server = 

@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+var asdao = require('../dao/accessSourceDao');
 var echartdatatemplate = require('./echartDataTemplate');
 
 router.get('/getListData_hour', function (req, res, next) {
@@ -26,6 +26,8 @@ router.get('/getListData_hour', function (req, res, next) {
 });
 
 router.get('/getPieData', function (req, res, next) {
+  asdao.getPieData(req, res, next);
+  /*
   var option = echartdatatemplate.getPieOptionTemplate();
   //console.log('here----------------');
   option.series[0].name = "流量来源饼图";
@@ -39,6 +41,7 @@ router.get('/getPieData', function (req, res, next) {
   option.series[0].data[2].value = 7;
   option.series[0].data[2].name = '外部链接';
   res.json(option);
+  */
 });
 
 //搜索引擎   

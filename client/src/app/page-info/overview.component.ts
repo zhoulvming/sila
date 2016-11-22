@@ -1,23 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import * as moment from 'moment';
-
-import { FlowService } from '../shared/services/flow.service';
+import { AccessSourceService } from '../shared/services/accessSource.service';
 import { FlowList } from '../shared/models/flowList01';
 import { FlowTop10Item } from '../shared/models/flowList01';
-
 var es = require('echarts');
 
 @Component({
   selector: 'app-flow',
-  templateUrl: './flowoverview.component.html',
-  styleUrls: ['./flowoverview.component.css'],
+  templateUrl: './overview.component.html',
   providers: [
-    FlowService
+    AccessSourceService
   ],
 })
-export class FlowOverviewComponent implements OnInit {
-
-
+export class PGOverviewComponent implements OnInit {
   public list01: FlowList[];
   public list02: FlowList[];
   public top10List:FlowTop10Item[];
@@ -26,7 +20,7 @@ export class FlowOverviewComponent implements OnInit {
 
 
 
-  constructor(public flowService: FlowService) {
+  constructor(public flowService: AccessSourceService) {
 
   }
 
@@ -97,5 +91,4 @@ export class FlowOverviewComponent implements OnInit {
     this.showTop10List();
 
   }
-
 }

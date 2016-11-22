@@ -10,12 +10,12 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppState, InteralStateType, AppUtil } from './shared/services/app.service';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { FlowComponent } from './flow/flow.component';
-import { FlowOverviewComponent } from './flowoverview/flowoverview.component';
-import { PageOverviewComponent } from './pageoverview/pageoverview.component';
+//import { FlowComponent } from './flow/flow.component';
+
 
 // here is project component --- start
 import { ASOverviewComponent } from './access-source/overview.component';
+import { PGOverviewComponent } from './page-info/overview.component';
 // here is project component --- end
 
 
@@ -30,10 +30,9 @@ const APP_PROVIDERS = [
     AppComponent,
     HomeComponent,
     SidebarComponent,
-    FlowComponent,
-    FlowOverviewComponent,
+    //FlowComponent,
     ASOverviewComponent,
-    PageOverviewComponent
+    PGOverviewComponent
   ],
   imports: [
     BrowserModule,

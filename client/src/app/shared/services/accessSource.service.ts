@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
-export class FlowService {
+export class AccessSourceService {
   constructor(public http: Http) { }
 
   private handleError(error: any): Promise<any> {
@@ -13,7 +13,7 @@ export class FlowService {
 
 
   getListData_Hour(): Promise<any> {
-    return this.http.get('/flow/getListData_hour').toPromise()
+    return this.http.get('/accessSource/getListData_hour').toPromise()
       .then(response => {
         return response.json();
       })
@@ -21,35 +21,35 @@ export class FlowService {
   }
 
   getPieData(): Promise<any> {
-    return this.http.get('/flow/getPieData').toPromise()
+    return this.http.get('/accessSource/getPieData').toPromise()
       .then(response => {
         return response.json();
       })
       .catch(this.handleError);
   }
   getBarData1(): Promise<any> {
-    return this.http.get('/flow/getBarData1').toPromise()
+    return this.http.get('/accessSource/getBarData1').toPromise()
       .then(response => {
         return response.json();
       })
       .catch(this.handleError);
   }
   getListData1(): Promise<any> {
-    return this.http.get('/flow/getListData1').toPromise()
+    return this.http.get('/accessSource/getListData1').toPromise()
       .then(response => {
         return response.json();
       })
       .catch(this.handleError);
   }
   getListData2(): Promise<any> {
-    return this.http.get('/flow/getListData2').toPromise()
+    return this.http.get('/accessSource/getListData2').toPromise()
       .then(response => {
         return response.json();
       })
       .catch(this.handleError);
   }
   getTop10ListData(): Promise<any> {
-    return this.http.get('/flow/getTop10ListData').toPromise()
+    return this.http.get('/accessSource/getTop10ListData').toPromise()
       .then(response => {
         return response.json();
       })
