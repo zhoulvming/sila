@@ -79,7 +79,7 @@ TABLE sila_site: 站点表(即客户表，使用我们产品的站点)
 
 ```
 TABLE sila_log_visit: 页面访问表
-  id int(10)            : 自动生成（主键）
+  id varchar(50)        : 用户访问唯一标识作为主键
   idsite                : 站点表外键
   page_url              : 页面URL
   page_title            : 页面名称
@@ -92,6 +92,7 @@ TABLE sila_log_visit: 页面访问表
   cip                   : IP地址  
   start_time            : 来访时间
   leave_time            : 离开时间
+  cookie_uuid           : 用户访问唯一标识
 ```
 
 ```
