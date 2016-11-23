@@ -26,26 +26,12 @@ router.get('/getListData_hour', function (req, res, next) {
 });
 
 router.get('/getPieData', function (req, res, next) {
-  asdao.getPieData(req, res, next);
-  /*
-  var option = echartdatatemplate.getPieOptionTemplate();
-  //console.log('here----------------');
-  option.series[0].name = "流量来源饼图";
-  option.series[0].data[0] = {};
-  option.series[0].data[0].value = 3;
-  option.series[0].data[0].name = '直接访问';
-  option.series[0].data[1] = {};
-  option.series[0].data[1].value = 4;
-  option.series[0].data[1].name = '搜索引擎';
-  option.series[0].data[2] = {};
-  option.series[0].data[2].value = 7;
-  option.series[0].data[2].name = '外部链接';
-  res.json(option);
-  */
+  asdao.getPieData(req, res, next); 
 });
 
 //搜索引擎   
 router.get('/getListData1', function (req, res, next) {
+  /*
   var testData = [{
     se: 'baidu',
     uv: '123',
@@ -60,6 +46,8 @@ router.get('/getListData1', function (req, res, next) {
 
 
   res.json(testData);
+  */
+  asdao.getListData1(req, res, next); 
 });
 
 //外部链接    直接访问

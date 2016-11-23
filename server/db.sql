@@ -7,7 +7,7 @@ CREATE TABLE sila_site (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='站点表'
 
 CREATE TABLE sila_log_visit (
-  id int(10) unsigned NOT NULL AUTO_INCREMENT,
+  uuid varchar(50) NOT NULL ,
   idsite int(10) unsigned,
   page_url varchar(255),
   page_title varchar(255),
@@ -20,7 +20,7 @@ CREATE TABLE sila_log_visit (
   cip varchar(20),
   start_time timestamp NULL DEFAULT NULL,
   leave_time timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (id)
+  PRIMARY KEY (uuid)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='页面访问量表'  
 
 CREATE TABLE sila_event (
