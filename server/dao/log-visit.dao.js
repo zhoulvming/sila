@@ -31,6 +31,7 @@ module.exports = {
 
 			// 建立连接，向表中插入值
 			connection.query($sql.insert, [
+				param.uuid,
         param.account,
         param.url,
         param.title, 
