@@ -1,3 +1,39 @@
+function setCookie(name,value,days,domain){
+	try{
+		var exp = new Date();
+		exp.setTime(exp.getTime() + days*24*60*60*1000);
+		document.cookie = name + "=" + value + ";" + "expires=" + exp.toGMTString()+";path=/;" + (domain ? ("domain=" + domain + ";") : "");
+	}catch(e){}
+}
+function getCookie(name) {
+	try{
+        var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+        if(arr=document.cookie.match(reg))
+            return arr[2];
+        else
+            return null;
+	}catch(e){}
+}
+function delCookie(name,domain){
+	try{
+        var date = new Date();
+        date.setDate(date.getDate() - 100000);
+        document.cookie = name + "=a; expires=" + date.toGMTString() + ";path=/" +";" + (domain ? ("domain=" + domain + ";") : "");
+	}catch(e){}
+}
+function uuid() {
+	var s = [];
+	var hexDigits = "0123456789ABCDEF";
+	for (var i = 0; i < 36; i++) {
+		s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+	}
+	s[14] = "4"; // bits 12-15 of the time_hi_and_version field to 0010
+	s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1); // bits 6-7 of the clock_seq_hi_and_reserved to 01
+	s[8] = s[13] = s[18] = s[23] = "-";
+	var uuid = s.join("");
+	return uuid;
+}
+
 (function() {
   var start = new Date();
   var strStart = start.getFullYear() + "-" + (start.getMonth() + 1) + "-" + start.getDate() + " " +
@@ -135,6 +171,14 @@
 		}
     params.url = window.location.href;
 
+    // 设置 用户唯一标识
+    var silaUuid = getCookie('__sila_uuid');
+    if ( !silaUuid ) {
+      silaUuid = uuid();
+      setCookie('__sila_uuid', silaUuid, 1);
+    }
+    params.uuid = silaUuid;
+
     //拼接参数串
     var args = '';
     for (var i in params) {
@@ -144,6 +188,8 @@
       args += i + '=' + encodeURIComponent(params[i]);
     }
 
+    
+    
     //通过Image对象请求后端脚本
     var img = new Image(1, 1);
     img.src = 'http://localhost:3000/sila/visterLog?' + args;

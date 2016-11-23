@@ -40,12 +40,11 @@ module.exports = {
         param.lang,
         param.cid,
         param.cname,
-        param.cip
+        param.cip,
+				param.uuid
       ], function(err, result) {
 
-        console.log(err);
-        console.log(result);
-
+				console.log(result);
 
 				if(result) {
 					result = {
