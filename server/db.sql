@@ -21,7 +21,7 @@ CREATE TABLE sila_log_visit (
   start_time timestamp NULL DEFAULT NULL,
   leave_time timestamp NULL DEFAULT NULL,
   PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='页面访问表'  
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='页面访问量表'  
 
 CREATE TABLE sila_event (
   id int(10) unsigned NOT NULL AUTO_INCREMENT,
