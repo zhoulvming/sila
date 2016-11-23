@@ -31,6 +31,7 @@ module.exports = {
 
 			// 建立连接，向表中插入值
 			connection.query($sql.insert, [
+				param.uuid,
         param.account,
         param.url,
         param.title, 
@@ -40,12 +41,11 @@ module.exports = {
         param.lang,
         param.cid,
         param.cname,
-        param.cip
+        param.cip,
+				param.uuid
       ], function(err, result) {
 
-        console.log(err);
-        console.log(result);
-
+				console.log(result);
 
 				if(result) {
 					result = {
