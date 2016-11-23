@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
-export class AccessSourceService {
+export class PageInfoService {
   constructor(public http: Http) { }
 
   private handleError(error: any): Promise<any> {
