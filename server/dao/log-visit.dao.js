@@ -28,6 +28,7 @@ module.exports = {
 		pool.getConnection(function(err, connection) {
 			// 获取前台页面传过来的参数
 			var param = req.query || req.params;
+			console.log(param);
 
 			// 建立连接，向表中插入值
 			connection.query($sql.insert, [
