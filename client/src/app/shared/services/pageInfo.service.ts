@@ -12,7 +12,7 @@ export class PageInfoService {
   }
 
 
-  
+
   getLineData(): Promise<any> {
     return this.http.get('/pageInfo/getLineData').toPromise()
       .then(response => {
@@ -20,7 +20,7 @@ export class PageInfoService {
       })
       .catch(this.handleError);
   }
-  
-  
+
+
 
 }

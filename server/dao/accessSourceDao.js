@@ -31,6 +31,14 @@ module.exports = {
 				connection.release();
 			});
 		});
+	},
+	getListData1: function (req, res, next) {
+		pool.getConnection(function(err, connection) {
+			connection.query($sql.list1, function(err, result) {
+				jsonWrite(res, result);
+				connection.release();
+			});
+		});
 	}
 
 };
