@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AccessSourceService } from '../shared/services/accessSource.service';
+import { PageInfoService } from '../shared/services/accessSource.service';
 import { EchartDataTemlate } from '../shared/models/echartDataTemplate';
 
 
@@ -11,7 +11,7 @@ var es = require('echarts');
   selector: 'app-flow',
   templateUrl: './overview.component.html',
   providers: [
-    AccessSourceService
+    PageInfoService
   ],
 })
 export class ASOverviewComponent implements OnInit {
@@ -25,7 +25,7 @@ export class ASOverviewComponent implements OnInit {
 
 
 
-  constructor(public accessSourceService: AccessSourceService) {
+  constructor(public accessSourceService: PageInfoService) {
     this.edt = new EchartDataTemlate();
   }
 
