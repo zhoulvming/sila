@@ -30,7 +30,7 @@ SILA
 │   │   │   │   ├── overview.component.*            // 概览
 │   │   │   │   ├── searchEngine.component.*        // 搜索引擎
 │   │   │   │   ├── referrer.component.*            // 外部链接
-│   │   │   │   ├── directAccess.component.*        //直接访问
+│   │   │   │   ├── directAccess.component.*        // 直接访问
 │   │   │   ├── page-info                           // 网页数据页面目录
 │   │   │   ├── user-info                           // 用户属性页面目录
 │   │   │   ├── user-behaviour                      // 用户行为页面目录
@@ -43,6 +43,7 @@ SILA
 │   │   │   ├── js                                  // 项目自己的js目录
 │   │   │   │   ├── app.js                          // 项目app.js
 │   │   │   │   ├── common.js                       // 项目共通js
+│   │   │   │   ├── ta.js                           // 埋点脚本
 │   │   │   ├── img                                 // 图片目录
 │   │   │   ├── plugins                             // 第三方插件（也可通过npm安装node_modules目录下，一般放置较简单的单文件插件）
 │   │   ├── environments                            // 无视
@@ -55,6 +56,7 @@ SILA
 │   │
 ├── server                                          // 服务器端代码目录
 │   ├── conf                                        // 配置目录
+│   │   ├── db.js                                   // 数据库配置文件
 │   ├── dao                                         // 数据库访问DAO（包含service和sql）
 │   │   ├── access-source.Dao.js                    // 访问来源Dao
 │   │   ├── access-source.Sql.js                    // 访问来源Sql
@@ -63,10 +65,16 @@ SILA
 │   │   ├── event.dao.js                            // 页面事件统计表 Dao
 │   │   ├── event.sql.js                            // 页面事件统计表 Sql
 │   ├── routes                                      // 所有业务接口逻辑
+│   │   ├── index.js                                // 接入客户端的入口文件，不用关心
 │   │   ├── access-source.js                        // 访问来源业务接口
+│   │   ├── sila.js                                 // 响应客户端埋点脚本的所有路由处理
 │   ├── db.sql                                      // 数据库DDL
 │   ├── server.js                                   // 服务器端入口文件
+
 ```
+
+
+
 ### 数据库设计
 
 ```
@@ -91,8 +99,8 @@ TABLE sila_log_visit: 页面访问表
   cname                 : 城市名称
   cip                   : IP地址  
   start_time            : 来访时间
-  leave_time            : 离开时间
-  cookie_uuid           : 用户访问唯一标识
+  leave_time            : 离开时间  (当页面关闭或者。。。场合，埋点脚本会去更新该字段)
+  cookie_uuid           : 用户访问唯一标识（用户追踪访客，统计UV）
 ```
 
 ```
