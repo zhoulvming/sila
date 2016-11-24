@@ -1,19 +1,28 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : local
+Source Server         : local--
 Source Server Version : 50624
-Source Host           : localhost:3306
+Source Host           : 127.0.0.1:3306
 Source Database       : digtal
 
 Target Server Type    : MYSQL
 Target Server Version : 50624
 File Encoding         : 65001
 
-Date: 2016-11-24 18:01:07
+Date: 2016-11-24 21:36:03
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for search_engine
+-- ----------------------------
+DROP TABLE IF EXISTS `search_engine`;
+CREATE TABLE `search_engine` (
+  `domain` varchar(100) DEFAULT NULL,
+  `description` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for sila_log_visit
@@ -100,21 +109,39 @@ CREATE DEFINER=`root`@`localhost` FUNCTION `GetOrigin`(`reffer` varchar(200)) RE
     COMMENT '根据reffer参数，返回\r\n1：外部链接\r\n2：搜索引擎\r\n3：直接访问'
 BEGIN
 	#Routine body goes here...
-	DECLARE ret   varchar(10);
+DECLARE nodata INT DEFAULT 0;
+DECLARE ret   varchar(10) DEFAULT '-';
+DECLARE v_domain varchar(100);
+
+/* 声明游标 */
+DECLARE rs CURSOR FOR SELECT domain FROM search_engine;
+
+/* 异常处理 */
+DECLARE CONTINUE HANDLER FOR SQLSTATE '02000' SET nodata = 1;
 
 	IF (reffer is null or reffer=''   ) THEN
 		#直接访问
-    SET ret='直接访问';
+    RETURN '直接访问';
   ELSE 
-    #这里要添加判断搜索引擎条件
-		IF (INSTR(reffer,'baidu')>0||INSTR(reffer,'google')>0||INSTR(reffer,'sogou')>0) THEN
-			SET ret='搜索引擎';
+    
+		open rs;
+		WHILE nodata = 0 DO#判断是不是到了最后一条数据
+			FETCH rs INTO v_domain;
+			IF (INSTR(reffer,v_domain)>0) THEN
+				SET ret='搜索引擎';
+				SET nodata=1;
+			END IF;
+		END WHILE;  
+		CLOSE rs;
+		IF ret='搜索引擎' THEN
+			RETURN '搜索引擎';
 		ELSE
-			SET ret='外部链接';
+			RETURN '外部链接'; 
 		END IF;
+
 	END IF;
 
-	RETURN ret;
+	##RETURN ret;
 END
 ;;
 DELIMITER ;
