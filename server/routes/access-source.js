@@ -31,42 +31,20 @@ router.get('/getPieData', function (req, res, next) {
 
 //搜索引擎   
 router.get('/getListData1', function (req, res, next) {
-  /*
-  var testData = [{
-    se: 'baidu',
-    uv: '123',
-    pv: '168',
-    tcl: '31%'
-  }, {
-    se: 'google',
-    uv: '153',
-    pv: '178',
-    tcl: '20%'
-  }]
-
-
-  res.json(testData);
-  */
   asdao.getListData1(req, res, next); 
 });
 
-//外部链接    直接访问
+//外部链接    
 router.get('/getListData2', function (req, res, next) {
-  var testData = [{
-    se: 'www.hao123.com ',
-    uv: '123',
-    pv: '168',
-    tcl: '33%'
-  }, {
-    se: 'www.zhihu.com ',
-    uv: '153',
-    pv: '178',
-    tcl: '24%'
-  }]
-
-
-  res.json(testData);
+  asdao.getListData2(req, res, next); 
 });
+
+//直接访问
+router.get('/getListData3', function (req, res, next) {
+  asdao.getListData3(req, res, next); 
+});
+
+
 
 router.get('/getBarData1', function (req, res, next) {
   var option = echartdatatemplate.getBarOptionTemplate();

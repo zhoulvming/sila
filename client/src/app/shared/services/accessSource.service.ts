@@ -44,6 +44,17 @@ export class PageInfoService {
   getListData2(): Promise<any> {
     return this.http.get('/accessSource/getListData2').toPromise()
       .then(response => {
+        console.log("==02==");
+        console.log(response);
+        return response.json();
+      })
+      .catch(this.handleError);
+  }
+  getListData3(): Promise<any> {
+    return this.http.get('/accessSource/getListData3').toPromise()
+      .then(response => {
+        console.log("==03==");
+        console.log(response);
         return response.json();
       })
       .catch(this.handleError);

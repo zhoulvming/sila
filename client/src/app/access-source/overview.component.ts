@@ -19,6 +19,7 @@ export class ASOverviewComponent implements OnInit {
 
   public list01: FlowList[];
   public list02: FlowList[];
+  public list03: FlowList[];
   public top10List: FlowTop10Item[];
 
 
@@ -88,6 +89,16 @@ export class ASOverviewComponent implements OnInit {
       })
       .catch(err => { });
   }
+  public showList3(): void {
+    //从服务器端获取数据
+    this.accessSourceService.getListData3()
+      .then(
+      data => {
+        this.list03 = data;
+
+      })
+      .catch(err => { });
+  }
   public showTop10List(): void {
     //从服务器端获取数据
     this.accessSourceService.getTop10ListData()
@@ -103,6 +114,7 @@ export class ASOverviewComponent implements OnInit {
     this.showPie();
     this.showList1();
     this.showList2();
+    this.showList3();
     this.showBar1();
     this.showTop10List();
 

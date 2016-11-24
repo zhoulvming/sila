@@ -1,7 +1,7 @@
 export class FlowList {
-  se: string;
-  uv: string;
-  pv: string;
+  ref: string;
+  uv_num: string;
+  pv_num: string;
   tcl: string;
 }
 

@@ -1,25 +1,5 @@
 <div class="panel panel-primary">
   <div class="panel-body" style="padding:5px;">
-    <div class="col-lg-6">
-      <!--breadcrumbs start -->
-      <ul class="breadcrumb m-bot-none">
-        <li>
-          <a href="#"><i class="icon-home"></i> 流量来源</a>
-        </li>
-        <li class="active">概览</li>
-      </ul>
-      <!--breadcrumbs end -->
-
-    </div>
-
-    <div class="col-lg-6 text-right">
-      <span class="labe" style=" line-height:34px;">2015/10/10</span>
-    </div>
-  </div>
-</div>
-
-<div class="panel panel-primary">
-  <div class="panel-body" style="padding:5px;">
     <div class="row">
       <div class="col-lg-6">
         <h3 class="myTitle">流量来源概览</h3>
@@ -63,9 +43,9 @@
                   </thead>
                   <tbody>
                     <tr *ngFor="let item of list01">
-                      <td class="text-center">{{item.se}}</td>
-                      <td class="text-center">{{item.uv}}</td>
-                      <td class="text-center">{{item.pv}}</td>
+                      <td class="text-center">{{item.ref}}</td>
+                      <td class="text-center">{{item.uv_num}}</td>
+                      <td class="text-center">{{item.pv_num}}</td>
                       <td class="text-center">{{item.tcl}}</td>
                     </tr>
                   </tbody>
@@ -88,9 +68,32 @@
                   </thead>
                   <tbody>
                     <tr *ngFor="let item of list02">
-                      <td class="text-center">{{item.se}}</td>
-                      <td class="text-center">{{item.uv}}</td>
-                      <td class="text-center">{{item.pv}}</td>
+                      <td class="text-center">{{item.ref}}</td>
+                      <td class="text-center">{{item.uv_num}}</td>
+                      <td class="text-center">{{item.pv_num}}</td>
+                      <td class="text-center">{{item.tcl}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+
+              </div>
+              <div id="zjfw" class="tab-pane">
+
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th class="text-center">直接访问</th>
+                      <th class="text-center">UV</th>
+                      <th class="text-center">PV</th>
+                      <th class="text-center">跳出率</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of list03">
+                      <td class="text-center">{{item.ref}}</td>
+                      <td class="text-center">{{item.uv_num}}</td>
+                      <td class="text-center">{{item.pv_num}}</td>
                       <td class="text-center">{{item.tcl}}</td>
                     </tr>
                   </tbody>
