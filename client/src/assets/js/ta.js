@@ -1,3 +1,19 @@
+var xmlHttp;
+var lastedInsertVisitLogID;
+function createXMLHttpRequest() {
+  if (window.ActiveXObject) {
+    xmlHttp = new ActiveXObject('Microsoft.XMLHTTP');
+  } else if (window.XMLHttpRequest) {
+    xmlHttp = new XMLHttpRequest();
+  }
+}
+//向服务端发起异步请求:GET（入口函数）,callback为回调函数名称
+function  doRequestUsingGET(url,  callback)  {    
+  createXMLHttpRequest();    
+  xmlHttp.onreadystatechange  =  callback;    
+  xmlHttp.open("GET",  url  +  "&timeStamp="  +  new  Date().getTime(),  true);    
+  xmlHttp.send(null);
+}
 function setCookie(name,value,days,domain){
 	try{
 		var exp = new Date();
@@ -6,20 +22,20 @@ function setCookie(name,value,days,domain){
 	}catch(e){}
 }
 function getCookie(name) {
-	try{
-        var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
-        if(arr=document.cookie.match(reg))
-            return arr[2];
-        else
-            return null;
-	}catch(e){}
+  try {
+    var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+    if (arr = document.cookie.match(reg))
+      return arr[2];
+    else
+      return null;
+  } catch (e) {}
 }
-function delCookie(name,domain){
-	try{
-        var date = new Date();
-        date.setDate(date.getDate() - 100000);
-        document.cookie = name + "=a; expires=" + date.toGMTString() + ";path=/" +";" + (domain ? ("domain=" + domain + ";") : "");
-	}catch(e){}
+function delCookie(name, domain) {
+  try {
+    var date = new Date();
+    date.setDate(date.getDate() - 100000);
+    document.cookie = name + "=a; expires=" + date.toGMTString() + ";path=/" + ";" + (domain ? ("domain=" + domain + ";") : "");
+  } catch (e) {}
 }
 function uuid() {
 	var s = [];
@@ -33,6 +49,8 @@ function uuid() {
 	var uuid = s.join("");
 	return uuid;
 }
+//////////////////////////////////////// END ///////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
 
 (function() {
   var start = new Date();
@@ -92,9 +110,19 @@ function uuid() {
     var strEnd = end.getFullYear() + "-" + (end.getMonth() + 1) + "-" + end.getDate() + " " +
       end.getHours() + ":" + end.getMinutes() + ":" + end.getSeconds();
     len += (end.getTime() - start.getTime()) / 1000;
-    var img = new Image();
-    var args = 'stayTime=' + len + '&strStart=' + strStart + '&lastDate=' + strEnd;
-    img.src = 'http://localhost:3000/sila/setData?' + args;
+    var args = 'stayTime=' + len + '&strStart=' + strStart + '&lastDate=' + strEnd + '&id=' + lastedInsertVisitLogID;
+    var urlGo = 'http://localhost:3000/sila/updateStayTime?' + args;
+    doRequestUsingGET(urlGo, function(){
+      if  (xmlHttp.readyState  ==  4)  {
+        var jsonObj = eval('(' + xmlHttp.responseText + ')');
+        console.log(jsonObj);
+      } else {
+        // donothing
+      }
+    });
+
+
+
   };
 
 
@@ -188,11 +216,20 @@ function uuid() {
       args += i + '=' + encodeURIComponent(params[i]);
     }
 
-    
-    
-    //通过Image对象请求后端脚本
-    var img = new Image(1, 1);
-    img.src = 'http://localhost:3000/sila/visterLog?' + args;
+    // 数据发送后台并做返回处理
+    var urlGo = 'http://localhost:3000/sila/visterLog?' + args;
+    doRequestUsingGET(urlGo, function(){
+      if  (xmlHttp.readyState  ==  4)  {
+        var jsonObj = eval('(' + xmlHttp.responseText + ')');
+        lastedInsertVisitLogID = jsonObj.insertId;
+      } else {
+        // donothing
+      }
+    });
+
+
+
+
   }, 500);
 
 

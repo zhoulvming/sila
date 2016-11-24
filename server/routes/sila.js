@@ -19,10 +19,14 @@ router.get('/buttonClick', function(req, res, next){
 
 // 页面访问log记录
 router.get('/visterLog', function(req, res, next) {
+  console.log('you have accessed visterLog !');
 	visterLogDao.addLog(req, res, next);
 });
 
 // 页面停留时间？
-
+router.get('/updateStayTime', function(req, res, next) {
+  console.log('you have accessed updateStayTime !');
+	visterLogDao.updateLeaveTime(req, res, next);
+});
 
 module.exports = router;

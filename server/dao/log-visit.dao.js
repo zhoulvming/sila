@@ -32,7 +32,6 @@ module.exports = {
 
 			// 建立连接，向表中插入值
 			connection.query($sql.insert, [
-				param.uuid,
         param.account,
         param.url,
         param.title, 
@@ -45,13 +44,47 @@ module.exports = {
         param.cip,
 				param.uuid
       ], function(err, result) {
+				
+				console.log('新增错误信息：')
+				console.log(err);
 
+				console.log('新增记录的主键ID为：')
+				console.log(result.insertId);
+
+				if(result) {
+					result = {
+						code: 200,
+						msg: '增加成功',
+						insertId: result.insertId
+					};    
+				}
+
+				// 以json形式，把操作结果返回给前台页面
+				jsonWrite(res, result);
+
+				// 释放连接 
+				connection.release();
+			});
+		});
+	},
+	updateLeaveTime: function(req, res, next) {
+		pool.getConnection(function(err, connection) {
+			var param = req.query || req.params;
+			var date_start = new Date( param.strStart );
+			var date_leave = new Date( param.lastDate );
+			connection.query($sql.updateLeaveTime, [
+				date_start,
+				date_leave,
+				param.id
+      ], function(err, result) {
+
+				console.log(err);
 				console.log(result);
 
 				if(result) {
 					result = {
 						code: 200,
-						msg:'增加成功'
+						msg:'更新成功'
 					};    
 				}
 

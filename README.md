@@ -105,3 +105,8 @@ TABLE sila_event: 事件统计表
   event_time            : 发生时间
   target_id             : 目标的DOM ID
 ```
+
+
+
+### TOOLIST
+> 如果用户不断刷新，我们算一次页面请求, 如何实现？
