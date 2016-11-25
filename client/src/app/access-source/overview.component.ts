@@ -62,8 +62,12 @@ export class ASOverviewComponent implements OnInit {
       barData => {
         var dom = document.getElementById("bar1");
         var myChart = es.init(dom);
-        var option = barData;
-        option = this.edt.getBarOptionTemplate();
+        var option = this.edt.getBarOptionTemplate();
+        for (var i = 0; i < barData.length; i++) {
+          option.xAxis[0].data[i]=barData[i].date;
+          option.series[0].data[i]=barData[i].num;
+          
+        }
         myChart.setOption(option, true);
       })
       .catch(err => { });

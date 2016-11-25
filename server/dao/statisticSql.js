@@ -41,6 +41,40 @@ pv left join
 (select distinct (t.referrer) as ref, t.cookie_uuid as uv_num from sila_log_visit t where GetOrigin(t.referrer)='直接访问')
  se group by se.ref) uv
 on pv.ref=uv.ref
+	`,
+
+	//获取最近10天的uv数量
+	getUvNum:`
+	SELECT  DATE_FORMAT((DATE_sub(now(),INTERVAL 9 day)), '%Y-%m-%d') as date,
+        getUvNum(DATE_FORMAT((DATE_sub(now(),INTERVAL 9 day)), '%Y-%m-%d')) as num
+	UNION ALL
+	SELECT  DATE_FORMAT((DATE_sub(now(),INTERVAL 8 day)), '%Y-%m-%d') as date,
+        getUvNum(DATE_FORMAT((DATE_sub(now(),INTERVAL 8 day)), '%Y-%m-%d')) as num
+	UNION ALL
+	SELECT  DATE_FORMAT((DATE_sub(now(),INTERVAL 7 day)), '%Y-%m-%d') as date,
+        getUvNum(DATE_FORMAT((DATE_sub(now(),INTERVAL 7 day)), '%Y-%m-%d')) as num
+	UNION ALL
+	SELECT  DATE_FORMAT((DATE_sub(now(),INTERVAL 6 day)), '%Y-%m-%d') as date,
+        getUvNum(DATE_FORMAT((DATE_sub(now(),INTERVAL 6 day)), '%Y-%m-%d')) as num
+	UNION ALL
+	SELECT  DATE_FORMAT((DATE_sub(now(),INTERVAL 5 day)), '%Y-%m-%d') as date,
+        getUvNum(DATE_FORMAT((DATE_sub(now(),INTERVAL 5 day)), '%Y-%m-%d')) as num
+	UNION ALL
+	SELECT  DATE_FORMAT((DATE_sub(now(),INTERVAL 4 day)), '%Y-%m-%d') as date,
+        getUvNum(DATE_FORMAT((DATE_sub(now(),INTERVAL 4 day)), '%Y-%m-%d')) as num
+	UNION ALL
+	SELECT  DATE_FORMAT((DATE_sub(now(),INTERVAL 3 day)), '%Y-%m-%d') as date,
+        getUvNum(DATE_FORMAT((DATE_sub(now(),INTERVAL 3 day)), '%Y-%m-%d')) as num
+	UNION ALL
+	SELECT  DATE_FORMAT((DATE_sub(now(),INTERVAL 2 day)), '%Y-%m-%d') as date,
+        getUvNum(DATE_FORMAT((DATE_sub(now(),INTERVAL 2 day)), '%Y-%m-%d')) as num
+	UNION ALL
+	SELECT  DATE_FORMAT((DATE_sub(now(),INTERVAL 1 day)), '%Y-%m-%d') as date,
+        getUvNum(DATE_FORMAT((DATE_sub(now(),INTERVAL 1 day)), '%Y-%m-%d')) as num
+	UNION ALL
+	SELECT  DATE_FORMAT((DATE_sub(now(),INTERVAL 0 day)), '%Y-%m-%d') as date,
+        getUvNum(DATE_FORMAT((DATE_sub(now(),INTERVAL 0 day)), '%Y-%m-%d')) as num
+	
 	`
 
 

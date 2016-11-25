@@ -47,10 +47,7 @@ router.get('/getListData3', function (req, res, next) {
 
 
 router.get('/getBarData1', function (req, res, next) {
-  var option = echartdatatemplate.getBarOptionTemplate();
-
-
-  res.json(option);
+  asdao.getUvNum(req, res, next); 
 });
 
 

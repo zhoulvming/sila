@@ -55,6 +55,14 @@ module.exports = {
 				connection.release();
 			});
 		});
-	}
+	},
+	getUvNum:function (req, res, next) {
+		pool.getConnection(function(err, connection) {
+			connection.query($sql.getUvNum, function(err, result) {
+				jsonWrite(res, result);
+				connection.release();
+			});
+		});
+	},
 
 };
