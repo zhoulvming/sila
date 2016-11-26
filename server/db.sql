@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50624
 File Encoding         : 65001
 
-Date: 2016-11-24 21:36:03
+Date: 2016-11-26 21:32:23
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -44,28 +44,7 @@ CREATE TABLE `sila_log_visit` (
   `leave_time` timestamp NULL DEFAULT NULL,
   `cookie_uuid` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COMMENT='页面访问量表';
-
--- ----------------------------
--- Table structure for sila_log_visit_bak
--- ----------------------------
-DROP TABLE IF EXISTS `sila_log_visit_bak`;
-CREATE TABLE `sila_log_visit_bak` (
-  `uuid` varchar(50) NOT NULL,
-  `idsite` int(10) unsigned DEFAULT NULL,
-  `page_url` varchar(255) DEFAULT NULL,
-  `page_title` varchar(255) DEFAULT NULL,
-  `domain` varchar(90) DEFAULT NULL,
-  `referrer` varchar(255) DEFAULT NULL,
-  `window_screen` varchar(20) DEFAULT NULL,
-  `language` varchar(20) DEFAULT NULL,
-  `cid` varchar(10) DEFAULT NULL,
-  `cname` varchar(50) DEFAULT NULL,
-  `cip` varchar(20) DEFAULT NULL,
-  `start_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `leave_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`uuid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='页面访问表';
+) ENGINE=InnoDB AUTO_INCREMENT=146 DEFAULT CHARSET=utf8 COMMENT='页面访问量表';
 
 -- ----------------------------
 -- Table structure for sila_site
@@ -78,16 +57,6 @@ CREATE TABLE `sila_site` (
   `created` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='站点表';
-
--- ----------------------------
--- Table structure for students
--- ----------------------------
-DROP TABLE IF EXISTS `students`;
-CREATE TABLE `students` (
-  `studentId` int(11) NOT NULL,
-  `studentName` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`studentId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for user
@@ -142,6 +111,48 @@ DECLARE CONTINUE HANDLER FOR SQLSTATE '02000' SET nodata = 1;
 	END IF;
 
 	##RETURN ret;
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Function structure for GetUvNum
+-- ----------------------------
+DROP FUNCTION IF EXISTS `GetUvNum`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` FUNCTION `GetUvNum`(`p_date` varchar(10)) RETURNS int(11)
+    COMMENT 'p_date参数必须是yyyy-mm-dd格式的日期字符串\r\n函数返回指定日期的uuid的数量'
+BEGIN
+	#Routine body goes here...
+DECLARE ret int;
+	select COUNT(DISTINCT t.cookie_uuid) into ret from sila_log_visit t where DATE_FORMAT(t.start_time, '%Y-%m-%d')=p_date ;
+
+	RETURN ret;
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Function structure for IsOnePage
+-- ----------------------------
+DROP FUNCTION IF EXISTS `IsOnePage`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` FUNCTION `IsOnePage`(`p_uvid` varchar(50)) RETURNS int(11)
+    COMMENT '根据一个uuid，来判定是否仅仅访问了一个网页。\r\n是返回1（纳入跳出率标准），否返回0' 
+BEGIN
+	#Routine body goes here...
+	DECLARE ret INT DEFAULT 0;
+select COUNT(DISTINCT t.page_url) into ret 
+	from sila_log_visit t
+	where t.cookie_uuid=p_uvid  ;
+
+	IF ret=1 THEN
+		RETURN 1;
+	ELSE
+		RETURN 0;
+	END IF;
+	
+	
 END
 ;;
 DELIMITER ;
