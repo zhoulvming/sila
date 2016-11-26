@@ -1,8 +1,8 @@
 export class FlowList {
   ref: string;
-  uv_num: string;
-  pv_num: string;
-  tcl: string;
+  uv_num: number;
+  pv_num: number;
+  tc_num: number;
 }
 
 export class FlowTop10Item {

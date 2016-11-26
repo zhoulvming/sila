@@ -40,7 +40,7 @@ module.exports = {
 		var startDate=req.query.startDate;
 		var endDate=req.query.endDate;
 		pool.getConnection(function(err, connection) {
-			connection.query($sql.list1,[startDate,endDate,startDate,endDate],  function(err, result) {
+			connection.query($sql.list1,[startDate,endDate,startDate,endDate,startDate,endDate],  function(err, result) {
 				jsonWrite(res, result);
 				connection.release();
 			});
@@ -50,7 +50,7 @@ module.exports = {
 		var startDate=req.query.startDate;
 		var endDate=req.query.endDate;
 		pool.getConnection(function(err, connection) {
-			connection.query($sql.list2, [startDate,endDate,startDate,endDate], function(err, result) {
+			connection.query($sql.list2, [startDate,endDate,startDate,endDate,startDate,endDate], function(err, result) {
 				jsonWrite(res, result);
 				connection.release();
 			});
@@ -60,7 +60,7 @@ module.exports = {
 		var startDate=req.query.startDate;
 		var endDate=req.query.endDate;
 		pool.getConnection(function(err, connection) {
-			connection.query($sql.list3, [startDate,endDate,startDate,endDate], function(err, result) {
+			connection.query($sql.list3, [startDate,endDate,startDate,endDate,startDate,endDate], function(err, result) {
 				jsonWrite(res, result);
 				connection.release();
 			});
