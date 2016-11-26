@@ -25,32 +25,42 @@ var jsonWrite = function (res, ret) {
 
 module.exports = {
 	getPieData: function (req, res, next) {
+		//console.log(req.query.startDate);
+		//console.log(req.query.endDate);
+		var startDate=req.query.startDate;
+		var endDate=req.query.endDate;
 		pool.getConnection(function(err, connection) {
-			connection.query($sql.pie, function(err, result) {
+			connection.query($sql.pie,[startDate,endDate], function(err, result) {
 				jsonWrite(res, result);
 				connection.release();
 			});
 		});
 	},
 	getListData1: function (req, res, next) {
+		var startDate=req.query.startDate;
+		var endDate=req.query.endDate;
 		pool.getConnection(function(err, connection) {
-			connection.query($sql.list1, function(err, result) {
+			connection.query($sql.list1,[startDate,endDate,startDate,endDate],  function(err, result) {
 				jsonWrite(res, result);
 				connection.release();
 			});
 		});
 	},
 	getListData2: function (req, res, next) {
+		var startDate=req.query.startDate;
+		var endDate=req.query.endDate;
 		pool.getConnection(function(err, connection) {
-			connection.query($sql.list2, function(err, result) {
+			connection.query($sql.list2, [startDate,endDate,startDate,endDate], function(err, result) {
 				jsonWrite(res, result);
 				connection.release();
 			});
 		});
 	},
 	getListData3: function (req, res, next) {
+		var startDate=req.query.startDate;
+		var endDate=req.query.endDate;
 		pool.getConnection(function(err, connection) {
-			connection.query($sql.list3, function(err, result) {
+			connection.query($sql.list3, [startDate,endDate,startDate,endDate], function(err, result) {
 				jsonWrite(res, result);
 				connection.release();
 			});
