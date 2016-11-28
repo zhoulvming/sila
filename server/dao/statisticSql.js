@@ -107,6 +107,14 @@ and t.start_time > STR_TO_DATE(?,'%Y-%m-%d')
 	SELECT  DATE_FORMAT((DATE_sub(now(),INTERVAL 0 day)), '%Y-%m-%d') as date,
         getUvNum(DATE_FORMAT((DATE_sub(now(),INTERVAL 0 day)), '%Y-%m-%d')) as num
 	
+	`,
+
+	//网页数据--概览 折线图
+	pvUvLine:`
+	select DATE_FORMAT(t.start_time, '%Y-%m-%d') as date,count(*) as pv_num, COUNT(DISTINCT t.cookie_uuid) as uv_num 
+		from sila_log_visit t where t.start_time > STR_TO_DATE(?,'%Y-%m-%d') 
+	and  t.start_time < DATE_add(STR_TO_DATE(?,'%Y-%m-%d'),INTERVAL 1 day)
+		group by DATE_FORMAT(t.start_time, '%Y-%m-%d')
 	`
 
 

@@ -79,4 +79,56 @@ export class EchartDataTemlate {
             ]
         };
     }
+
+    public getLineOptionTemplate(): any {
+        return {
+            title: {
+                text: 'PV,UV走势'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['PV', 'UV']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: []
+                    //data: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+                {
+                    name: 'PV',
+                    type: 'line',
+                    stack: '总量',
+                    data: []
+                    //data: [120, 132, 101, 134, 90, 230, 210]
+                },
+                {
+                    name: 'UV',
+                    type: 'line',
+                    stack: '总量',
+                    data: []
+                    //data: [220, 182, 191, 234, 290, 330, 310]
+                }
+
+            ]
+        };
+
+    }
 }

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var asdao = require('../dao/accessSourceDao');
-var echartdatatemplate = require('./echartDataTemplate');
+//var echartdatatemplate = require('./echartDataTemplate');
 
 router.get('/getListData_hour', function (req, res, next) {
   //允许所有域名访问
