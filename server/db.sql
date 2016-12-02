@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50624
 File Encoding         : 65001
 
-Date: 2016-11-26 21:32:23
+Date: 2016-12-03 06:31:16
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -44,7 +44,7 @@ CREATE TABLE `sila_log_visit` (
   `leave_time` timestamp NULL DEFAULT NULL,
   `cookie_uuid` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=146 DEFAULT CHARSET=utf8 COMMENT='页面访问量表';
+) ENGINE=InnoDB AUTO_INCREMENT=154 DEFAULT CHARSET=utf8 COMMENT='页面访问量表';
 
 -- ----------------------------
 -- Table structure for sila_site
@@ -68,6 +68,64 @@ CREATE TABLE `user` (
   `age` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Function structure for GetAvgPageTime
+-- ----------------------------
+DROP FUNCTION IF EXISTS `GetAvgPageTime`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` FUNCTION `GetAvgPageTime`(`p_sdate` varchar(10),`p_edate` varchar(10),`p_idsite` int,`p_ref` varchar(500)) RETURNS varchar(20) CHARSET utf8
+BEGIN
+	#Routine body goes here...
+DECLARE v_time_diff int;
+DECLARE v_hh varchar(10);
+DECLARE v_mi varchar(10);
+DECLARE v_ss varchar(10);
+select 
+AVG(abs(TIMESTAMPDIFF(SECOND ,t.leave_time ,t.start_time))) into v_time_diff
+ from sila_log_visit t
+WHERE
+t.start_time> str_to_date(p_sdate,'%Y-%m-%d')
+and t.start_time<DATE_add(STR_TO_DATE(p_edate,'%Y-%m-%d'),INTERVAL 1 day)
+and t.idsite=p_idsite
+and t.referrer=p_ref;
+
+	set v_ss = v_time_diff mod 60;
+
+	set v_hh = v_time_diff div (60*60);
+
+	set v_mi = (v_time_diff div 60) mod 60;
+
+
+	RETURN   CONCAT(LPAD(v_hh,2,'0'),":",LPAD(v_mi,2,'0'),":",LPAD(v_ss,2,'0'));
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Function structure for GetNewUvNum
+-- ----------------------------
+DROP FUNCTION IF EXISTS `GetNewUvNum`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` FUNCTION `GetNewUvNum`(`p_sdate` varchar(10),`p_edate` varchar(10),`p_idsite` int,`p_ref` varchar(500)) RETURNS int(11)
+BEGIN
+	DECLARE ret int;
+	select count(DISTINCT t.cookie_uuid) into ret from sila_log_visit t
+WHERE
+t.start_time> str_to_date(p_sdate,'%Y-%m-%d')
+and t.start_time<DATE_add(STR_TO_DATE(p_edate,'%Y-%m-%d'),INTERVAL 1 day)
+and t.idsite=p_idsite
+and t.referrer=p_ref
+and not t.cookie_uuid in (select distinct cookie_uuid from sila_log_visit
+where t.start_time<=str_to_date(p_sdate,'%Y-%m-%d')
+and t.idsite=p_idsite
+and t.referrer=p_ref
+);
+
+	RETURN ret;
+END
+;;
+DELIMITER ;
 
 -- ----------------------------
 -- Function structure for GetOrigin
@@ -133,12 +191,63 @@ END
 DELIMITER ;
 
 -- ----------------------------
+-- Function structure for GetVisitNum
+-- ----------------------------
+DROP FUNCTION IF EXISTS `GetVisitNum`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` FUNCTION `GetVisitNum`(`p_sdate` varchar(10),`p_edate` varchar(10),`p_idsite` int,`p_ref` varchar(500)) RETURNS int(11)
+    COMMENT '\r\n'
+BEGIN
+	#Routine body goes here...
+DECLARE nodata INT DEFAULT 0;
+DECLARE ret INT DEFAULT 0;
+DECLARE v_time timestamp;
+DECLARE v_cookie VARCHAR(50);
+DECLARE v_previous_cookie VARCHAR(50);
+DECLARE v_previous_time timestamp;
+/* 声明游标 */
+DECLARE rs CURSOR FOR SELECT t.start_time,t.cookie_uuid FROM sila_log_visit t
+WHERE 
+t.start_time> str_to_date(p_sdate,'%Y-%m-%d')
+and t.start_time<DATE_add(STR_TO_DATE(p_edate,'%Y-%m-%d'),INTERVAL 1 day)
+and t.idsite=p_idsite
+and t.referrer=p_ref
+##and GetOrigin(t.referrer)='搜索引擎'
+ORDER BY t.cookie_uuid,t.start_time
+; 
+ 
+/* 异常处理 */
+DECLARE CONTINUE HANDLER FOR SQLSTATE '02000' SET nodata = 1;
+
+    set v_previous_cookie='';
+		open rs;
+		WHILE nodata = 0 DO#判断是不是到了最后一条数据
+			FETCH rs INTO v_time,v_cookie;
+			IF (v_previous_cookie<>v_cookie) THEN
+				SET ret=ret+1;
+			ELSE
+				IF(TIMESTAMPDIFF(MINUTE,v_time,v_previous_time)>30) THEN
+						SET ret=ret+1;
+				END IF;
+			END IF;
+			set v_previous_cookie=v_cookie;
+			SET v_previous_time=v_time;
+		END WHILE;  
+		CLOSE rs;
+		
+RETURN ret;
+	
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
 -- Function structure for IsOnePage
 -- ----------------------------
 DROP FUNCTION IF EXISTS `IsOnePage`;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` FUNCTION `IsOnePage`(`p_uvid` varchar(50)) RETURNS int(11)
-    COMMENT '根据一个uuid，来判定是否仅仅访问了一个网页。\r\n是返回1（纳入跳出率标准），否返回0' 
+    COMMENT '根据一个uuid，来判定是否仅仅访问了一个网页。\r\n是返回1（纳入跳出率标准），否返回0'
 BEGIN
 	#Routine body goes here...
 	DECLARE ret INT DEFAULT 0;
