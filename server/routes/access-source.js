@@ -25,6 +25,11 @@ router.get('/getListData_hour', function (req, res, next) {
   res.json(testData);
 });
 
+router.get('/getASData', function (req, res, next) {
+  asdao.getASData(req, res, next); 
+});
+
+
 router.get('/getPieData', function (req, res, next) {
   asdao.getPieData(req, res, next); 
 });
