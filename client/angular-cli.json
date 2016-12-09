@@ -18,20 +18,20 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
-        "../node_modules/font-awesome/css/font-awesome.css",
-        "styles.scss",
-        "styles-responsive.scss"        
+        "../semantic/dist/semantic.min.css",
+        "style.scss",
+        "sila-semantic-reset.scss"
       ],
       "scripts": [
-        "../node_modules/jquery/dist/jquery.min.js",
-        "../node_modules/tether/dist/js/tether.min.js",
-        "../node_modules/bootstrap/dist/js/bootstrap.min.js",
-        "../src/assets/plugins/jquery.nicescroll.js",
-        "../src/assets/plugins/jquery.scrollTo.min.js",
+        "../src/assets/plugins/jquery.min.js",
+        "../node_modules/jquery.nicescroll/jquery.nicescroll.min.js",
+        "../semantic/dist/semantic.min.js",
         "../src/assets/plugins/daterangepicker/moment.min.js",
         "../src/assets/plugins/daterangepicker/daterangepicker.js",
-        "../src/assets/js/common.js"
+        "../src/assets/js/common.js",
+        "../src/assets/plugins/jqGrid/jquery.jqGrid.min.js",
+        "../src/assets/plugins/jqGrid/i18n/grid.locale-cn.js"
+
       ],
       "environments": {
         "source": "environments/environment.ts",
