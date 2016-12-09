@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var asdao = require('../dao/accessSourceDao');
-var echartdatatemplate = require('./echartDataTemplate');
+//var echartdatatemplate = require('./echartDataTemplate');
 
 router.get('/getListData_hour', function (req, res, next) {
   //允许所有域名访问
@@ -25,6 +25,11 @@ router.get('/getListData_hour', function (req, res, next) {
   res.json(testData);
 });
 
+router.get('/getASData', function (req, res, next) {
+  asdao.getASData(req, res, next); 
+});
+
+
 router.get('/getPieData', function (req, res, next) {
   asdao.getPieData(req, res, next); 
 });
@@ -47,10 +52,7 @@ router.get('/getListData3', function (req, res, next) {
 
 
 router.get('/getBarData1', function (req, res, next) {
-  var option = echartdatatemplate.getBarOptionTemplate();
-
-
-  res.json(option);
+  asdao.getUvNum(req, res, next); 
 });
 
 

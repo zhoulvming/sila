@@ -13,8 +13,8 @@ export class PageInfoService {
 
 
 
-  getLineData(): Promise<any> {
-    return this.http.get('/pageInfo/getLineData').toPromise()
+  getLineData(startDate,endDate): Promise<any> {
+    return this.http.get('/pageInfo/getLineData?startDate='+startDate+'&endDate='+endDate).toPromise()
       .then(response => {
         return response.json();
       })

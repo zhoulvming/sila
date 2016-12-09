@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
-export class PageInfoService {
+export class AccessSourceService {
   constructor(public http: Http) { }
 
   private handleError(error: any): Promise<any> {
@@ -20,8 +20,8 @@ export class PageInfoService {
       .catch(this.handleError);
   }
 
-  getPieData(): Promise<any> {
-    return this.http.get('/accessSource/getPieData').toPromise()
+  getPieData(startDate,endDate): Promise<any> {
+    return this.http.get('/accessSource/getPieData?startDate='+startDate+'&endDate='+endDate).toPromise()
       .then(response => {
         return response.json();
       })
@@ -34,27 +34,23 @@ export class PageInfoService {
       })
       .catch(this.handleError);
   }
-  getListData1(): Promise<any> {
-    return this.http.get('/accessSource/getListData1').toPromise()
+  getListData1(startDate,endDate): Promise<any> {
+    return this.http.get('/accessSource/getListData1?startDate='+startDate+'&endDate='+endDate).toPromise()
       .then(response => {
         return response.json();
       })
       .catch(this.handleError);
   }
-  getListData2(): Promise<any> {
-    return this.http.get('/accessSource/getListData2').toPromise()
+  getListData2(startDate,endDate): Promise<any> {
+    return this.http.get('/accessSource/getListData2?startDate='+startDate+'&endDate='+endDate).toPromise()
       .then(response => {
-        console.log("==02==");
-        console.log(response);
         return response.json();
       })
       .catch(this.handleError);
   }
-  getListData3(): Promise<any> {
-    return this.http.get('/accessSource/getListData3').toPromise()
+  getListData3(startDate,endDate): Promise<any> {
+    return this.http.get('/accessSource/getListData3?startDate='+startDate+'&endDate='+endDate).toPromise()
       .then(response => {
-        console.log("==03==");
-        console.log(response);
         return response.json();
       })
       .catch(this.handleError);
