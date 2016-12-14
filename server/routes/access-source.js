@@ -25,10 +25,15 @@ router.get('/getListData_hour', function (req, res, next) {
   res.json(testData);
 });
 
+//流量数据，搜索引擎-外部链接-直接访问
 router.get('/getASData', function (req, res, next) {
   asdao.getASData(req, res, next); 
 });
 
+//流量数据，外部链接-按网站汇总
+router.get('/getASDataOuterLink', function (req, res, next) {
+  asdao.getASDataOuterLink(req, res, next); 
+});
 
 router.get('/getPieData', function (req, res, next) {
   asdao.getPieData(req, res, next); 

@@ -24,6 +24,71 @@ var jsonWrite = function (res, ret) {
 };
 
 module.exports = {
+	getASDataOuterLink: function (req, res, next) {
+		var startDate=req.query.startDate;
+		var endDate=req.query.endDate;
+		var siteId=req.query.siteId;
+		pool.getConnection(function(err, connection) {
+			
+			connection.query($sql.flowsql,[startDate,endDate,siteId,startDate,endDate,siteId,startDate,endDate,siteId,
+siteId,startDate,endDate,siteId,startDate,endDate,startDate,endDate,siteId,startDate,endDate,siteId,startDate,endDate,siteId,
+siteId,startDate,endDate,siteId,startDate,endDate,startDate,endDate,siteId,startDate,endDate,siteId,startDate,endDate,siteId,
+siteId,startDate,endDate
+], function(err, result) {
+				var data={"total":result.length+1,"rows":[],"footer":[{"source_type":"当前汇总:","pv":8000,"pv_ratio": 100,"visit_count": 600,"uv": 600,"uv_new": 600,"visit_average_time":"00:01:30"}]};
+				//data.total=result.length;
+				
+
+				var sumPvTotal=0;
+				var sumVisitTotal=0;
+				var sumUvTotal=0;
+				var sumNewUvTotal=0;
+				for(var i=0;i<result.length;i++){
+					var row = result[i];
+					
+					sumPvTotal=sumPvTotal+row.pv_num;
+					sumVisitTotal=sumVisitTotal+row.visit_num;
+					sumUvTotal=sumUvTotal+row.uv_num;
+					sumNewUvTotal=sumNewUvTotal+row.new_uv_num;
+				}
+				
+				data.footer[0].pv=sumPvTotal;
+				data.footer[0].pv_ratio="";
+				data.footer[0].visit_count=sumVisitTotal;
+				data.footer[0].uv=sumUvTotal
+				data.footer[0].uv_new=sumNewUvTotal
+				data.footer[0].visit_average_time="";
+
+				
+				for(var i=0;i<result.length;i++){
+					var row = result[i];
+					var newRow={};
+
+  					
+					newRow.source_type=row.ref;
+					newRow.pv=row.pv_num;
+					newRow.pv_ratio="";
+					newRow.visit_count=row.visit_num;
+					newRow.uv=row.uv_num;
+					newRow.uv_new=row.new_uv_num;
+					newRow.visit_average_time=row.avg_time;
+
+					newRow.id=i;
+					// 拼接函数(索引位置, 要删除元素的数量, 元素)
+					data.rows.splice(newRow.id, 0, newRow); // 
+					if(row.type=="搜索引擎"){
+					}else if(row.type=="外部链接"){
+					}else{
+						newRow.source_type="直接访问";
+					}
+				
+				}
+
+				jsonWrite(res, data);
+				connection.release();
+			});
+		});
+	},
 	getASData: function (req, res, next) {
 		//console.log(req.query.startDate);
 		//console.log(req.query.endDate);
@@ -135,10 +200,12 @@ siteId,startDate,endDate
 	getPieData: function (req, res, next) {
 		//console.log(req.query.startDate);
 		//console.log(req.query.endDate);
+		//console.log(req.query.siteId);
 		var startDate=req.query.startDate;
 		var endDate=req.query.endDate;
+		var siteId=req.query.siteId;
 		pool.getConnection(function(err, connection) {
-			connection.query($sql.pie,[startDate,endDate], function(err, result) {
+			connection.query($sql.pie,[startDate,endDate,siteId], function(err, result) {
 				jsonWrite(res, result);
 				connection.release();
 			});
