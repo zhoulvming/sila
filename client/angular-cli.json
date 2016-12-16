@@ -19,12 +19,11 @@
       "mobile": false,
       "styles": [
         "../semantic/dist/semantic.min.css",
-        "style.scss",
-        "sila-semantic-reset.scss"
+        "../src/assets/css/style.scss",
+        "../src/assets/css/semantic-reset.scss"
       ],
       "scripts": [
         "../src/assets/plugins/jquery.min.js",
-        "../node_modules/jquery.nicescroll/jquery.nicescroll.min.js",
         "../semantic/dist/semantic.min.js",
         "../src/assets/plugins/daterangepicker/moment.min.js",
         "../src/assets/plugins/daterangepicker/daterangepicker.js",

@@ -7,6 +7,11 @@ var sila = require('./routes/sila');
 var user = require('./routes/user');
 var accessSource = require('./routes/access-source');
 var pageInfo = require('./routes/page-info');
+
+
+/////////////////////////////////////////////////////////
+var common = require('./routes/common');
+var source = require('./routes/source');
 var port = 3000;
 var app = express();
 
@@ -27,6 +32,10 @@ app.use('/sila', sila);
 app.use('/user', user);
 app.use('/accessSource', accessSource);
 app.use('/pageInfo', pageInfo);
+
+////////////////////////////////////////
+app.use('/common', common);
+app.use('/source', source);
 
 var server = 
   app.listen(port, function(){

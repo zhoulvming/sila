@@ -1,0 +1,82 @@
+<section>
+  <header class="header white-bg">
+    <div class="sidebar-toggle-box">
+      <div data-original-title="Toggle Navigation" data-placement="right" class="icon-reorder tooltips"></div>
+    </div>
+    <a href="#" class="logo">Sila</a>
+    
+    <div class="nav notify-row" id="top_menu">
+      <ul class="nav top-menu">
+
+        <!--埋点网站信息-->
+        <li class="dropdown">
+          <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+            <i class="fa fa-tasks"></i>
+            <span>wwww.baidu.com</span>
+          </a>
+          <ul class="dropdown-menu extended tasks-bar">
+            <div class="notify-arrow notify-arrow-green"></div>
+            <li>
+              <p class="green"></p>
+            </li>
+            <li>
+              <a href="#">
+                <span class="label label-danger"><i class="fa fa-bolt"></i></span> www.baidu.com
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="label label-danger"><i class="fa fa-bolt"></i></span> www.baidu.com
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="label label-danger"><i class="fa fa-bolt"></i></span> www.baidu.com
+              </a>
+            </li>            
+          </ul>
+        </li>
+
+        <!--时间区间信息-->
+        <li style="width: 180px;">
+          <input type="text" id="date-range" class="form-control form-control-sm">
+        </li>
+      </ul>
+    </div>
+   
+    <!--登录信息-->
+    <div class="top-nav">
+      <ul class="nav pull-right top-menu">       
+        <li class="dropdown">
+          <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+            <img alt="" src="assets/img/avatar1_small.jpg">
+            <span class="username">Jhon Doue</span>
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu extended logout">
+            <div class="log-arrow-up"></div>
+            <li><a href="#"><i class=" icon-suitcase"></i>Profile</a></li>
+            <li><a href="#"><i class="icon-cog"></i> Settings</a></li>
+            <li><a href="#"><i class="icon-bell-alt"></i> Notification</a></li>
+            <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+
+  </header>
+  <app-sidebar></app-sidebar>
+  <section id="main-content">
+    <section class="wrapper">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item active">Library</li>
+      </ol>
+      <router-outlet></router-outlet>
+      <footer>
+        <span>Infosys用户体验综合分析平台 &nbsp;&nbsp;   &nbsp;&nbsp; Infosys Digital Experience Analysis System</span>
+		  </footer>
+    </section>
+  </section>
+</section>
