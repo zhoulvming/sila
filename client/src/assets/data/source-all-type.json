@@ -1,0 +1,14 @@
+{"total":9,"rows": [
+  {"id":1,"source_type":"搜索引擎","pv": 4000,"pv_ratio": 50,"visit_count": 300,"uv": 100,"uv_new": 100,"visit_average_time":"00:01:30","_parentId":null,"iconCls":"icon-ok"},
+  {"id":2,"source_type":"百度","pv": 1000,"pv_ratio": 50,"visit_count": 100,"uv": 100,"uv_new": 100,"visit_average_time":"00:01:30","_parentId":1},
+  {"id":3,"source_type":"谷歌","pv": 1000,"pv_ratio": 50,"visit_count": 100,"uv": 100,"uv_new": 100,"visit_average_time":"00:01:30","_parentId":1},
+  {"id":4,"source_type":"搜狐","pv": 1000,"pv_ratio": 50,"visit_count": 100,"uv": 100,"uv_new": 100,"visit_average_time":"00:01:30","_parentId":1},
+  {"id":5,"source_type":"外部链接","pv": 4000,"pv_ratio": 50,"visit_count": 300,"uv": 100,"uv_new": 100,"visit_average_time":"00:01:30","_parentId":null,"iconCls":"icon-ok"},
+  {"id":6,"source_type":"http://m.baidu.com","pv": 1000,"pv_ratio": 50,"visit_count": 100,"uv": 100,"uv_new": 100,"visit_average_time":"00:01:30","_parentId":5},
+  {"id":7,"source_type":"http://www.baidu.com","pv": 1000,"pv_ratio": 50,"visit_count": 100,"uv": 100,"uv_new": 100,"visit_average_time":"00:01:30","_parentId":5},
+  {"id":8,"source_type":"http://www.sohu.com","pv": 1000,"pv_ratio": 50,"visit_count": 100,"uv": 100,"uv_new": 100,"visit_average_time":"00:01:30","_parentId":5},
+  {"id":8,"source_type":"http://www.sohu.com","pv": 1000,"pv_ratio": 50,"visit_count": 100,"uv": 100,"uv_new": 100,"visit_average_time":"00:01:30","_parentId":5},
+  {"id":9,"source_type":"直接访问","pv": 1000,"pv_ratio": 50,"visit_count": 100,"uv": 100,"uv_new": 100,"visit_average_time":"00:01:30","iconCls":"icon-ok"}
+],"footer":[
+  {"source_type":"当前汇总:","pv":8000,"pv_ratio": 100,"visit_count": 600,"uv": 600,"uv_new": 600,"visit_average_time":"00:01:30"}
+]}

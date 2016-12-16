@@ -1,0 +1,31 @@
+.filter-range-time {
+  width: 530px;
+  color: #323437;
+  .l {
+    float: left;
+  }
+  .label {
+    display: inline-block;
+    // height: 26px;
+    // padding-right: 5px;
+    // line-height: 26px;
+    color: #787a7d;
+  }
+  .date-select-bar {
+    display: inline-block;
+    margin-right: 7px;
+  }
+  .time-select-bar {
+    height: 26px;
+    padding-right: 5px;
+    line-height: 26px;
+  }
+  button {
+    padding: 6px 8px;
+  }
+  input {
+    font-size: 12px;
+    height: 26px;
+    width: 170px;
+  }
+}
