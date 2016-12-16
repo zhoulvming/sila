@@ -67,8 +67,12 @@ $page-body-color: #ececec;
     .page-wrapper .page-content .body {
       // border: 1px solid $out-border-color;
       .ui.segment {
-        padding:0;
-        border-radius:0;
+        padding: 0;
+        border-radius: 0;
+      }
+      .ui.message.panel {
+        background:#fff;
+        padding: 20px;
       }
     }
     .page-footer {

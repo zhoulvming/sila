@@ -119,6 +119,25 @@ export class Global {
       }    
     };
 
+    /**
+     * ui message close event
+     */
+    $('.message .close').on('click', function () {
+      $(this).closest('.message').transition('fade');
+    });
+
+    /**
+     * dashboard 与 普通页面切换时
+     */
+    var currentPath = window.location.href;
+    if (currentPath.indexOf('#/dashboard') > 0 || currentPath.lastIndexOf('/#/') + 3 == currentPath.length) {
+      $('.sila > .body > .left').hide();
+      $('.sila > .body > .right').attr('style', 'padding-left:0');
+    } else {
+      $('.sila > .body > .left').show();
+      $('.sila > .body > .right').attr('style', 'padding-left:250px');      
+    }
+
     // excute  
     setupTab();
     setupSiteDropdownData(this);
