@@ -1,71 +1,84 @@
-var mysql = require('mysql');
-var $conf = require('../conf/db');
-var $sql = require('./source.sql');
+// system require
+var mysql = require('mysql')
+var Promise = require('bluebird')
 
-
-
+// private require
+var $conf = require('../conf/db')
+var $sql = require('./source.sql')
 
 // 使用连接池，提升性能
 var pool = mysql.createPool({
-  host: $conf.mysql.host,
-  user: $conf.mysql.user,
-  password: $conf.mysql.password,
-  database: $conf.mysql.database,
-  port: $conf.mysql.port
-});
-
-// 向前台返回JSON方法的简单封装
-var jsonWrite = function (res, ret) {
-  if (typeof ret === 'undefined') {
-    res.json({
-      code: '1',
-      msg: '操作失败'
-    });
-  } else {
-    res.json(ret);
-  }
-};
-
+	host: $conf.mysql.host,
+	user: $conf.mysql.user,
+	password: $conf.mysql.password,
+	database: $conf.mysql.database,
+	port: $conf.mysql.port
+})
 
 // 接口函数
 module.exports = {
 
-
-	query: function (req, res, next) {
-		var startDate = req.query.startDate;
-		var endDate = req.query.endDate;
-    var siteId = req.query.siteId;
-		pool.getConnection(function(err, connection) {
-			connection.query($sql.pie1, [startDate, endDate, siteId], function (err, result) {
-			  jsonWrite(res, result);
-			  connection.release();
-			});
-		});
+	/**
+	 * 获取来源类型中饼图数据
+	 */
+	queryPie: function (req, res, next) {
+		return new Promise(function (resolve, reject) {
+			var startDate = req.query.startDate
+			var endDate = req.query.endDate
+			var siteId = req.query.siteId
+			pool.getConnection(function (err, connection) {
+				connection.query($sql.pie1, [startDate, endDate, siteId], function (err, result) {
+					if (err) {
+						reject(err)
+					} else {
+						resolve(result)
+					}
+					connection.release()
+				})
+			})
+		})
 	},
 
+	/**
+	 * 获取来源类型中趋势图数据
+	 */
+	queryLine: function (req, res, next) {
+		return new Promise(function (resolve, reject) {
+			var startDate = req.query.startDate
+			var endDate = req.query.endDate
+			var siteId = req.query.siteId
+			pool.getConnection(function (err, connection) {
+				connection.query($sql.pie1, [startDate, endDate, siteId], function (err, result) {
+					if (err) {
+						reject(err)
+					} else {
+						resolve(result)
+					}
+					connection.release()
+				})
+			})
+		})
+	},
 
+	/**
+	 * 获取来源类型中树表结构数据
+	 */
+	queryTreegrid: function (req, res, next) {
+		return new Promise(function (resolve, reject) {
+			var startDate = req.query.startDate
+			var endDate = req.query.endDate
+			var siteId = req.query.siteId
+			pool.getConnection(function (err, connection) {
+				connection.query($sql.pie1, [startDate, endDate, siteId], function (err, result) {
+					if (err) {
+						reject(err)
+					} else {
+						resolve(result)
+					}
+					connection.release()
+				})
+			})
+		})
+	}	
 
-  // test: return new Promise(function(resolve, reject){
-  //   tradiationCallbackBasedThing(function(error, data){
-  //     if (error) {
-  //         reject(error);
-  //     } else {
-  //         resolve(data)
-  //     }
-  //   });
-  // }),
-
-
-
-
-
-	queryAll: function (req, res, next) {
-		pool.getConnection(function(err, connection) {
-			connection.query($sql.queryAll, function(err, result) {
-				jsonWrite(res, result);
-				connection.release();
-			});
-		});
-	}
-
-};
+}

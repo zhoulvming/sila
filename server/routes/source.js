@@ -1,46 +1,54 @@
-var express = require('express');
-var router = express.Router();
-var sourceDao = require('../dao/source.dao');
+// system require
+var express = require('express')
+var router = express.Router()
+var Promise = require('bluebird')
 
-var Promise = require('bluebird');
+// system require
+var sourceDao = require('../dao/source.dao')
 
-// 获取饼图（来源类型）数据接口
+// 向前台返回JSON方法的简单封装
+var jsonWrite = function (res, ret) {
+  if (typeof ret === 'undefined') {
+    res.json({code:'1', msg:'操作失败'})
+  } else {
+    res.json(ret)
+  }
+}
 
 /**
  * 
- * 获取饼图（来源类型）数据接口
- * 参数：
+ * 获取（来源类型）数据接口
+ * 
+ * query 参数:
  *  siteID
  *  startDate
  *  endDate
  * 
+ * 返回值:
+ *  pie
+ *  line
+ *  treegrid
+ *  
  */
 router.get('/all', function(req, res, next){
-
-// res.json({
-//   user: User.find(req.params.userId),
-//   memo: Project.getMemo(req.params.userId)
-// });
-
-
-  // source.query(req, res, next);
-
-  // sourceDao.query(req, res, next).then(function(result){
-  //   console.log(111111);
-  // });
-
-
-});
-
-
-// 页面访问log记录
-router.get('/visterLog', function(req, res, next) {
-  console.log('you have accessed visterLog !');
-	visterLogDao.addLog(req, res, next);
-});
+  Promise
+    .all([
+      sourceDao.queryPie(req, res, next),
+      sourceDao.queryLine(req, res, next),
+      sourceDao.queryTreegrid(req, res, next)
+    ])
+    .then(function(data) {
+      jsonWrite(res, {
+        pieData: data[0],
+        lineData: data[1],
+        tgData: data[2]
+      })
+    }, function(err) {
+      jsonWrite(res, err)
+    })
+})
 
 
 
 
-
-module.exports = router;
+module.exports = router
