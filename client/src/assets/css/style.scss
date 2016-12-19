@@ -1,5 +1,11 @@
-$out-border-color: #d2d3d4;
-$page-body-color: #ececec;
+// 变量定义
+$out_border_color: #d2d3d4;
+$body_bgcolor: #ececec;
+$primary_bgcolor: #2185D0;
+
+body {
+  background: $body_bgcolor;
+}
 
 // layout
 .sila > .header {
@@ -26,7 +32,7 @@ $page-body-color: #ececec;
 .sila > .body {
   padding-top: 59px;
   .left {
-    border-right: 1px solid $out-border-color;
+    border-right: 1px solid $out_border_color;
     padding-top: 25px;
     position: fixed;
     float: left;
@@ -52,7 +58,7 @@ $page-body-color: #ececec;
       }
     }
     .page-wrapper {
-      background: $page-body-color;
+      // background: $page-body-color;
       padding: 20px;
     }
     .page-wrapper .page-content {
@@ -62,20 +68,24 @@ $page-body-color: #ececec;
       background: #fafafa;
       margin: -20px -20px 20px -20px;
       padding: 20px;
-      border-bottom: 1px solid $out-border-color;
+      border-bottom: 1px solid $out_border_color;
     }
     .page-wrapper .page-content .body {
-      // border: 1px solid $out-border-color;
+      // border: 1px solid $out_border_color;
       .ui.segment {
-        padding:0;
-        border-radius:0;
+        padding: 0;
+        border-radius: 0;
+      }
+      .ui.message.panel {
+        background:#fff;
+        padding: 20px;
       }
     }
     .page-footer {
       padding: 20px 0;
       text-align: center;
       color: #787a7d;
-      background: $page-body-color;
+      // background: $page-body-color;
     }
   }
 }
@@ -90,20 +100,20 @@ $page-body-color: #ececec;
     border-radius: 0;
   };
   .ui-widget-content {
-    border: 1px solid $out-border-color;
+    border: 1px solid $out_border_color;
     border-right-width: 0;
   }
   .ui-state-default, 
   .ui-widget-content .ui-state-default, 
   .ui-widget-header .ui-state-default {
-    border: 1px solid $out-border-color;
+    border: 1px solid $out_border_color;
     background-color: #F9FAFB;
     color: rgba(0,0,0,.87);
     font-weight: 700;
     border-top-width: 0 !important;
   }
   .ui-pager-control {
-    border-right: 1px solid $out-border-color;
+    border-right: 1px solid $out_border_color;
   }
 }
 
@@ -151,7 +161,7 @@ $page-body-color: #ececec;
     font-weight: bolder;
     border-bottom: 0;
     padding: 0;
-    border-bottom: 4px solid #00B5AD;
+    border-bottom: 4px solid $primary_bgcolor;
   }
 
   .tab-header ul li:hover {

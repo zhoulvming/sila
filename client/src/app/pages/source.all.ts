@@ -15,7 +15,7 @@ export class SourceAllPage implements OnInit {
     startDate: '2016-01-01',
     endDate: '2016-03-01'
   };
-  // 埋点网站(页面顶部下拉框所选内容)，因为
+  // 埋点网站(页面顶部下拉框所选内容)，因为self.selectedSiteID.unshift(value);只能定义成数组类型
   selectedSiteID = [];
   // 分析类型：来源类型/来源网站
   anaType: number;
@@ -39,18 +39,8 @@ export class SourceAllPage implements OnInit {
   }
 
   ngOnInit() {
-    // 页面一些共通组件的初始化和数据获取
     this._global.init();
-
     this.renderPage();
-
-    // 树结构数据
-    this.setupTreeData();
-
-    // echarts组件
-    this.setPie_source_type();
-    this.setLine_source_type();
-    
   }
 
   private getSearchCondition() {
@@ -388,7 +378,12 @@ export class SourceAllPage implements OnInit {
       return ;
     }
 
-    // 获取
+    // 树结构数据
+    this.setupTreeData();
+
+    // echarts组件
+    this.setPie_source_type();
+    this.setLine_source_type();    
 
   }
   
