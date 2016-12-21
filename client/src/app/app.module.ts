@@ -36,10 +36,6 @@ import { DateRangePicker } from './directives/daterangepicker.directive';
 // ========================================================= Components end
 
 
-import { NgSemanticModule } from 'ng-semantic';
-
-
-
 // Application wide providers
 const APP_PROVIDERS = [
   AppState, Global
@@ -75,8 +71,7 @@ const APP_PROVIDERS = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule,
-    NgSemanticModule
+    AppRoutingModule
   ],
   providers: [APP_PROVIDERS],
   bootstrap: [AppComponent]
