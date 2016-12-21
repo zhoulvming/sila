@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/ecmascript" src="jquery.min.js"></script>
+  <script type="text/ecmascript" src="jquery.jqGrid.min.js"></script>
+  <script type="text/ecmascript" src="i18n/grid.locale-cn.js"></script>
+  <link rel="stylesheet" href="jquery-ui.css">
+  <link rel="stylesheet" href="ui.jqgrid.css">
+</head>
+
+<body>
+  <table id="treegrid" style="width: 100%">
+  </table> 
+</body>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+
+$("#treegrid").jqGrid({ 
+               treeGrid: true, 
+               treeGridModel: 'adjacency', 
+               ExpandColumn: 'name', 
+               ExpandColClick: true, 
+               url: 'test.json', 
+               datatype: 'json', 
+               colNames: ["管理选项"], 
+               colModel: [{ 
+                   name: 'name', 
+                   index: 'name'
+
+               }], 
+               pager: "false", 
+               height: 'auto', 
+               width: '210', 
+               viewrecords: true, 
+               //   caption: 'none', 
+               jsonReader: { 
+                   root: "rows", 
+                   total: "total", 
+                   repeatitems: true 
+               }
+
+           });
+
+  });
+</script>
+
+</html>
