@@ -107,6 +107,7 @@ TABLE sila_log_visit: 页面访问表
   start_time            : 来访时间
   leave_time            : 离开时间  (当页面关闭或者。。。场合，埋点脚本会去更新该字段)
   cookie_uuid           : 用户访问唯一标识（用户追踪访客，统计UV）
+  province              : 省份名称
 ```
 
 ```
