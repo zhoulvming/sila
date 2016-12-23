@@ -7,6 +7,7 @@ var sila = require('./routes/sila');
 var user = require('./routes/user');
 var accessSource = require('./routes/access-source');
 var pageInfo = require('./routes/page-info');
+var visitorAnalysis = require('./routes/visitor-analysis');
 
 
 /////////////////////////////////////////////////////////
@@ -32,6 +33,7 @@ app.use('/sila', sila);
 app.use('/user', user);
 app.use('/accessSource', accessSource);
 app.use('/pageInfo', pageInfo);
+app.use('/visitorAnalysis', visitorAnalysis);
 
 ////////////////////////////////////////
 app.use('/common', common);

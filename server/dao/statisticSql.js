@@ -1,6 +1,18 @@
 
 
 var statistic = {
+	//访问数，按省份汇总
+	visitorIpSql:`
+	select COUNT(DISTINCT t.cookie_uuid) as ip_num,t.province from sila_log_visit t
+	where t.idsite=?
+	and t.start_time > STR_TO_DATE(?,'%Y-%m-%d') 
+	and  t.start_time < DATE_add(STR_TO_DATE(?,'%Y-%m-%d'),INTERVAL 1 day)
+	and not t.province is null
+	group by t.province order by ip_num desc
+	`,
+
+
+
 	//流量相关统计数据 
 	/*匹配的参数
 	[startDate,endDate,siteId,startDate,endDate,siteId,startDate,endDate,siteId,
