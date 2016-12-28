@@ -105,11 +105,6 @@ export class SourceAllPage implements OnInit {
               }
             }
           },
-          // data: [
-          //   { value: 335, name: '搜索引擎' },
-          //   { value: 310, name: '外部访问' },
-          //   { value: 234, name: '直接访问' }
-          // ]
           data: data
         }
       ]
@@ -117,6 +112,7 @@ export class SourceAllPage implements OnInit {
     myChart.setOption(option);
   }
 
+//todo:test data fo me 
   /**
    * 来源类型折线图
    * 范围：今日
@@ -329,15 +325,15 @@ export class SourceAllPage implements OnInit {
     }
 
     //todo: test data
-    startDate = '2010-03-02'
-    endDate = '2016-12-12'
+    startDate = '2016-12-22'
+    endDate = '2016-12-22'
     siteId = 1
 
     self.sourceService.getDataWithType(siteId, startDate, endDate)
       .then(data => {
         console.log(data)
         self.setEchartPie_sourceType_today_pv(data.pieData)
-        self.setEchartLine_sourceType_today_pv(data.lineData)
+        //self.setEchartLine_sourceType_today_pv(data.lineData)
         self.setupTreeData()
       }).catch(err => { })
   }

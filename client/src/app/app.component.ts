@@ -25,7 +25,7 @@ export class AppComponent {
   // siteSelectedChange: EventEmitter<any>;
 
   menu = [{
-      title: '报表面板',
+      title: '全景概览',
       icon: 'dashboard icon',
       id: 'link_dashboard',
       path: '#/dashboard',

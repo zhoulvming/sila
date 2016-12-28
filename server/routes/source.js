@@ -31,6 +31,10 @@ var jsonWrite = function (res, ret) {
  *  
  */
 router.get('/all', function(req, res, next){
+  var startDate = req.query.startDate
+  var endDate = req.query.endDate
+  var siteId = req.query.siteId
+
   Promise
     .all([
       sourceDao.queryPie(req, res, next),
@@ -41,7 +45,7 @@ router.get('/all', function(req, res, next){
       jsonWrite(res, {
         pieData: data[0],
         lineData: data[1],
-        tgData: data[2]
+        tgData: data[1]
       })
     }, function(err) {
       jsonWrite(res, err)
