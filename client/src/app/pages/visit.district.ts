@@ -53,7 +53,20 @@ export class VisitDistrictPage implements OnInit {
   }
 
 
-  public showMap(startDate, endDate, siteId): void {
+  public showMap(): void {
+
+    var siteId = this.selectedSiteID[0] ;
+    var startDate = this.selectedDaterange.startDate ;
+    var endDate = this.selectedDaterange.endDate ;
+    siteId="1";
+    startDate="2000-11-11";
+    endDate="2020-11-11";
+    //alert(siteId);
+    //alert(startDate);
+    if (!siteId) {
+      //alert('您未选择要分析的目标网站') ;
+      return ;
+    }
 
     this.visitorService.getVisitorDataByProvince(startDate, endDate, siteId)
       .then(
@@ -130,7 +143,25 @@ export class VisitDistrictPage implements OnInit {
 
   ngOnInit() {
     //this.showMap(startDate,endDate,siteId);
-    this.showMap('2001-1-1', '2020-1-1', '1');
+    this.showMap();
+  }
+
+  /**
+   * 
+   * 日期范围变化触发此函数
+   * 
+   * @param {any} obj
+   * obj {
+   *   startDate: ...
+   *   endDate: ...
+   * }
+   * 
+   * @memberOf SourceAllPage
+   */
+  updateDaterangeI(obj) {
+    this.selectedDaterange = obj
+    this.showMap();
+    //this.renderPage()
   }
 
 

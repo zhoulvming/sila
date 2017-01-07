@@ -28,6 +28,9 @@ module.exports = {
         var startDate = req.query.startDate;
         var endDate = req.query.endDate;
         var siteId = req.query.siteId;
+        console.log('startDate='+startDate);
+        console.log('endDate='+endDate);
+        console.log('siteId='+siteId);
         pool.getConnection(function (err, connection) {
             connection.query($sql.visitorIpSql, [siteId,startDate, endDate], function (err, result) {
                 jsonWrite(res, result);
