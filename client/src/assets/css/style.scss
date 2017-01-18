@@ -1,0 +1,195 @@
+// 变量定义
+$out_border_color: #d2d3d4;
+$body_bgcolor: #ececec;
+$primary_bgcolor: #2185D0;
+
+body {
+  background: $body_bgcolor;
+}
+
+// layout
+.sila > .header {
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  .top.menu {
+    border-radius: 0;
+  }
+  .top {
+    > .menu {
+      border-radius: 0;
+    }
+    .ui.menu .active.item {
+      border-width: 0;
+    }
+  }
+  
+  .logo {
+    width: 250px;
+    text-align: center;
+  }
+}
+.sila > .body {
+  padding-top: 59px;
+  .left {
+    border-right: 1px solid $out_border_color;
+    padding-top: 25px;
+    position: fixed;
+    float: left;
+    width: 250px;
+    background: #fff;
+    text-align: center;
+    .ui.menu {
+      font-size: 14px;
+      margin-left: auto;
+      margin-right: auto;
+      > .active {
+        color: #2185D0;
+        background: #fff;
+      }
+    }
+  }
+  .right {
+    padding-left: 250px;
+    .page-header {
+      background: #fafafa;
+      padding: 15px;
+      .sub.header {
+      }
+    }
+    .page-wrapper {
+      // background: $page-body-color;
+      padding: 20px;
+    }
+    .page-wrapper .page-content {
+      // background: #fff;
+    }
+    .page-wrapper .page-content .top {
+      background: #fafafa;
+      margin: -20px -20px 20px -20px;
+      padding: 20px;
+      border-bottom: 1px solid $out_border_color;
+    }
+    .page-wrapper .page-content .body {
+      // border: 1px solid $out_border_color;
+      .ui.segment {
+        padding: 0;
+        border-radius: 0;
+      }
+      .ui.message.panel {
+        background:#fff;
+        padding: 20px;
+      }
+    }
+    .page-footer {
+      padding: 20px 0;
+      text-align: center;
+      color: #787a7d;
+      // background: $page-body-color;
+    }
+  }
+}
+
+// treegrid
+.treegrid {
+  .ui-corner-all, 
+  .ui-corner-top, 
+  .ui-corner-bottom,
+  .ui-corner-right, 
+  .ui-corner-tr {
+    border-radius: 0;
+  };
+  .ui-widget-content {
+    border: 1px solid $out_border_color;
+    border-right-width: 0;
+  }
+  .ui-state-default, 
+  .ui-widget-content .ui-state-default, 
+  .ui-widget-header .ui-state-default {
+    border: 1px solid $out_border_color;
+    background-color: #F9FAFB;
+    color: rgba(0,0,0,.87);
+    font-weight: 700;
+    border-top-width: 0 !important;
+  }
+  .ui-pager-control {
+    border-right: 1px solid $out_border_color;
+  }
+}
+
+// tab
+.sila-tab {
+  box-shadow: 0 1px 3px 0 #D4D4D5,0 0 0 1px #D4D4D5;
+  min-height: 200px;
+  overflow: hidden;
+  a {
+    color: black;
+    text-decoration: none;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .tab-header {
+    background-color: #F7F7F7;
+    height: 40px;
+    text-align: center;
+    position: relative;
+  }
+
+  .tab-header ul {
+    //  width: 500px;
+    position: absolute;
+    left: -1px;
+  }
+
+  .tab-header ul li {
+    color: #777;
+    font-size: 15px;
+    float: left;
+    width: 95px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 1px;
+    cursor: pointer;
+  }
+
+  .tab-header ul li.selected {
+    color: #333;
+    font-weight: bolder;
+    border-bottom: 0;
+    padding: 0;
+    border-bottom: 4px solid $primary_bgcolor;
+  }
+
+  .tab-header ul li:hover {
+    color: #00B5AD;
+  }
+
+  .tab-header .action {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #000;
+  }
+
+  .tab-content {
+    padding: 20px;
+    .dom {
+      display: none;
+    }
+  }
+
+  .tab-content .dom ul li {
+    float: left;
+    /*background-color: red;*/
+    margin: 15px 10px;
+    width: 225px;
+  }
+
+  .tab-content .dom ul li a:hover {
+    color: orange;
+  }
+}

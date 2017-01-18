@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Infosys DEAS</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="assets/plugins/daterangepicker/daterangepicker.css">
+
+  <!--treegrid style-->
+  <link rel="stylesheet" href="assets/plugins/jqGrid/jquery-ui.css">
+  <link rel="stylesheet" href="assets/plugins/jqGrid/ui.jqgrid.css">
+
+  
+</head>
+<body class="test">
+  <app-root>Loading...</app-root>
+</body>
+
+
+
+<!--此处app.js为即刻执行函数，所以不能放在angular-cli.json中包含加载-->
+<script src="assets/js/app.js"></script>
+<script>
+  $(document).ready(function() {
+    App.init();
+  });
+</script>
+
+<!--<script>
+  var _maq = _maq || [];
+  _maq.push(['_account', '1']);
+  _maq.push(['_button', ['like_btn', 'hello_btn']]);
+  _maq.push(['_link', ['home_link', 'flow_link']]);
+  (function() {
+    var ta = document.createElement('script'); ta.type = 'text/javascript'; ta.async = true;
+    ta.src = ('https:' == document.location.protocol ? 'https://localhost:3000' : 'http://localhost:3000') + '/assets/js/ta.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ta, s);
+  })();
+</script>-->
+
+
+</html>

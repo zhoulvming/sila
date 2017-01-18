@@ -1,0 +1,83 @@
+<div class="sila">
+  <div class="header">
+    <div class="ui large top menu blue inverted">
+      <div class="item logo">
+        <a href="./" style="width:100%;font-weight:bold;font-size:2rem">SILA</a>
+      </div>
+      <a class="item" href="{{root.path}}" [ngClass]="{'active':root.id==currentRootMenuId}" *ngFor="let root of menu" (click)="onRootMenuSelect(root.id)">
+        <i class="{{root.icon}}"></i> {{root.title}}
+      </a>
+      <div class="right menu">
+        <div class="item" style="font-size:1rem;">
+          <div class="ui tiny selection dropdown">
+            <input type="hidden" id="site_select">
+            <i class="dropdown icon"></i>
+            <div class="default text">目标网站</div>
+            <div class="menu">
+              <div class="item" *ngFor="let obj of siteData; let i = index;" [ngClass]="{'active':i==0}">
+                {{obj.main_url}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item" style="font-size:1rem;">
+          <span>
+            <div class="ui inline dropdown">
+              <div class="text">
+                <img class="ui avatar image" src="assets/img/avatar1_small.jpg">
+                Jenny Hess
+              </div>
+              <i class="dropdown icon"></i>
+              <div class="menu">
+                <a class="item" href="#"><i class="reply mail icon"></i>返回首页</a>
+                <a class="item" href="#"><i class="reply mail icon"></i>注销登录</a>
+              </div>
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="body">
+    <div class="left">
+      <!--左侧sidebar-->
+      <div  *ngIf="currentSubMenu">
+        <div class="ui vertical menu">
+          <a class="item" href="{{submenu.path}}" [ngClass]="{'active': submenu.id==currentSelectedSubMenu.id}" *ngFor="let submenu of currentSubMenu"
+            (click)="onSubMenuSelect(submenu)">
+            <i class="{{submenu.icon}}"></i> {{submenu.title}}
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="page-header">
+        <h3 class="ui header">
+            <div *ngIf="currentSubMenu">
+              <i class="{{currentSubMenu.icon}}"></i>
+              <div class="content">
+                <i class="{{currentSelectedSubMenu.icon}}"></i> {{currentSelectedSubMenu.title}}
+                <a class="help" href="javascript:;" (click)="toggleDescription()"><i class="help icon"></i></a>
+                <div class="sub header" *ngIf="pageHeaderDescShowFlag">{{currentSelectedSubMenu.description}}</div>
+              </div>
+            </div>
+            <div *ngIf="!currentSubMenu">
+              <i class=""></i>
+              <div class="content">
+                <i class="{{currentRootMenuIcon}}"></i> {{currentRootMenuTitle}}
+                <div class="sub header"></div>
+              </div>
+            </div>
+          </h3>
+      </div>
+      <div class="page-wrapper">
+        <div class="page-content">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+      <div class="page-footer">
+        <span>Infosys用户体验综合分析平台 &nbsp;&nbsp;   &nbsp;&nbsp; Infosys Digital Experience Analysis System</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,98 @@
+{
+	"rows": [{
+		"id": "1",
+		"name": "搜索引擎",
+		"pv": "300",
+		"pv_ratio": "60",
+		"visit_count": "160",
+		"uv": "200",
+		"visit_average_time": "00:02:40",
+		"lft": "1",
+		"rgt": "6",
+		"level": "0",
+		"uiicon": ""
+	}, {
+		"id": "2",
+		"name": "百度 ",
+		"pv": "100",
+		"pv_ratio": "20",
+		"visit_count": "70",
+		"uv": "150",
+		"visit_average_time": "00:01:40",
+		"lft": "2",
+		"rgt": "3",
+		"level": "1",
+		"uiicon": ""
+	}, {
+		"id": "3",
+		"name": "搜狐",
+		"pv": "200",
+		"pv_ratio": "40",
+		"visit_count": "90",
+		"uv": "50",
+		"visit_average_time": "00:01:00",
+		"lft": "4",
+		"rgt": "5",
+		"level": "1",
+		"uiicon": ""
+	},
+	
+	
+	
+	{
+		"id": "4",
+		"name": "外部链接",
+		"pv": "300",
+		"pv_ratio": "60",
+		"visit_count": "160",
+		"uv": "200",
+		"visit_average_time": "00:02:40",
+		"lft": "7",
+		"rgt": "12",
+		"level": "0",
+		"uiicon": ""
+	}, {
+		"id": "5",
+		"name": "http://test1.com ",
+		"pv": "100",
+		"pv_ratio": "20",
+		"visit_count": "70",
+		"uv": "150",
+		"visit_average_time": "00:01:40",
+		"lft": "8",
+		"rgt": "9",
+		"level": "1",
+		"uiicon": ""
+	}, {
+		"id": "6",
+		"name": "http://test2.com",
+		"pv": "200",
+		"pv_ratio": "40",
+		"visit_count": "90",
+		"uv": "50",
+		"visit_average_time": "00:01:00",
+		"lft": "10",
+		"rgt": "11",
+		"level": "1",
+		"uiicon": ""
+	},
+
+
+
+
+	{
+		"id": "7",
+		"name": "直接访问",
+		"pv": "300",
+		"pv_ratio": "60",
+		"visit_count": "160",
+		"uv": "200",
+		"visit_average_time": "00:02:40",
+		"lft": "13",
+		"rgt": "14",
+		"level": "0",
+		"uiicon": ""
+	}
+	
+	]
+}

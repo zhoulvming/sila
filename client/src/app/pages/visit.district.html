@@ -1,0 +1,63 @@
+<div class="top">
+  <daterange (updateDaterangeI)="updateDaterangeI($event)" [input]="selectedDaterange"></daterange>
+</div>
+<div class="body">
+  <div class="ui segment">
+    <div class="sila-tab">
+      <div class="tab-header">
+        <ul>
+          <li class="selected">按省</li>
+          <li>按国家</li>
+        </ul>
+      </div>
+      <div class="tab-content">
+        <!--按省 Tab 内容-->
+        <div class="dom" style="display: block;">
+          <div class="ui segment">
+
+          </div>
+          <!--echarts展现内容-->
+          <div class="ui segment">
+            <div class="ui grid" style="height:600px;">
+              <div class="twelve wide column" >
+                <div id="map_type" style="height:600px;width:100%;"></div>
+              </div>
+              <div class="four wide column" style="border:0px solid blue;">
+                <table class="ui celled table">
+                  <thead>
+                    <tr>
+                      <th>省份</th>
+                      <th>访问量</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    <tr *ngFor="let item of list">
+                      <td >{{item.province}}</td>
+                      <td >{{item.ip_num}}</td>
+                    </tr>
+
+                  </tbody>
+
+                </table>
+
+
+
+              </div>
+            </div>
+          </div>
+          <!--treetable展现内容-->
+          <br>
+          <div class="ui segment treegrid">
+            <table id="mytree"></table>
+            <div id="pager"></div>
+          </div>
+        </div>
+        <!--按国家 Tab 内容-->
+        <div class="dom">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

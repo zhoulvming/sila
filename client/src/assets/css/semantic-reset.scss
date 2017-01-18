@@ -1,0 +1,38 @@
+.ui.container {
+  width: 1200px;
+}
+
+.ui.menu {
+  position: relative;
+  padding: 0;
+}
+
+.ui.vertical.menu {
+  box-shadow: none;
+}
+.ui.inverted.teal.menu .active.item {
+  background-color: rgba(0,0,0,.3)!important;
+  font-weight: bold;
+  font-size: 14px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.ui.input input {
+  padding: 0 10px;
+}
+
+.ui.segment {
+  box-shadow: none;
+  border-width: 0;
+}
+
+.ui.positive.button,
+.ui.positive.button:hover {
+  background-color: #00B5AD;
+}
+
+
+.ui.cards>.card {
+  border-radius: 0;
+}
