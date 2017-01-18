@@ -52,7 +52,10 @@ export class VisitClientPage implements OnInit {
   }
 
   ngOnInit() { 
+<<<<<<< HEAD
     this._global.init()
+=======
+>>>>>>> bf7ab6ae15bec376b883d82ec7262f157135f0d8
      this.setBar_source_type();
   }
 
