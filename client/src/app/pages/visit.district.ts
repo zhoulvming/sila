@@ -142,7 +142,7 @@ export class VisitDistrictPage implements OnInit {
   }
 
   ngOnInit() {
-    //this.showMap(startDate,endDate,siteId);
+    //this.showMap(startDate,endDate,siteId);//
      this._global.init()
     this.showMap();
   }
