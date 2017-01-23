@@ -121,79 +121,90 @@ export class AppComponent {
 
   // 页面初始化
   ngOnInit() {
-    
 
-
-    var self = this;
+    var self = this
     // 页面刷新时候设置当前菜单状态
-    self.resetMenuState();
+    self.resetMenuState()
 
-
-   
     // 分析网站下拉框
     // $('#site_select')
-      // .dropdown('setting', 'transition', 'vertical flip');
-      // .popup('setting', 'content', '请选择您要分析的网站');
+      // .dropdown('setting', 'transition', 'vertical flip')
+      // .popup('setting', 'content', '请选择您要分析的网站')
     
     $("#site_select").change(function(obj) {  
       // 当前选择的目标网站id存放进appstate，然后在source组件中获取
-      self._appState.siteSelectedChange.emit(obj.target.value);
-      // console.log($('#site_select').val());
-    }); 
+      self._appState.siteSelectedChange.emit(obj.target.value)
+      // console.log($('#site_select').val())
+    })
     
   }
 
   // 根节点击处理
   onRootMenuSelect(id) {
-    var hasSubmenuFlag = false;
-    this.currentRootMenuId = id;
+    var hasSubmenuFlag = false
+    this.currentRootMenuId = id
     this.menu.forEach(root => {
       if (root.id == id) {
-        this.currentRootMenuTitle = root.title;
-        this.currentRootMenuIcon = root.icon;
+        this.currentRootMenuTitle = root.title
+        this.currentRootMenuIcon = root.icon
         if (root.sub) {
-          hasSubmenuFlag = true;
-          this.currentSubMenu = root.sub;
-          this.currentSelectedSubMenu = this.currentSubMenu[0];
+          hasSubmenuFlag = true
+          this.currentSubMenu = root.sub
+          this.currentSelectedSubMenu = this.currentSubMenu[0]
         }
       }
     });
     if ( !hasSubmenuFlag ) {
-      this.currentSubMenu = null;
+      this.currentSubMenu = null
     }
-
-
-    
   }
 
   // 子菜单点击处理
   onSubMenuSelect(submenu) {
-    this.currentSelectedSubMenu = submenu;
+    this.currentSelectedSubMenu = submenu
   }
 
   // 页面刷新时候设置当前菜单状态
   private resetMenuState() {
-    let path = window.location.href;
-    let ary = path.split('#');
-    let currentPath = '#' + ary[1];
+    var self = this
+    let path = window.location.href
+    let ary = path.split('#')
+    let currentPath = '#' + ary[1]
     if (ary.length == 1) {
-      currentPath = '#/dashboard';
+      currentPath = '#/dashboard'
     } else {
       if ( currentPath == '#/') {
-        currentPath = '#/dashboard';
+        currentPath = '#/dashboard'
       }
     }
-    this.menu.forEach(root => {
-      if (root.path == currentPath) {
-        this.currentRootMenuId = root.id;
-        this.currentRootMenuTitle = root.title;
-        this.currentRootMenuIcon = root.icon;
-        if (root.sub) {
-          this.currentSubMenu = root.sub;
-          this.currentSelectedSubMenu = this.currentSubMenu[0];
+    self.menu.every(function (root, k) {
+      if (root.sub) {
+        // self.currentSubMenu = root.sub  
+        if(root.path === currentPath) {
+          self.currentSubMenu = root.sub  
+          self.currentSelectedSubMenu = self.currentSubMenu[0]
+          self.currentRootMenuId = root.id
+          self.currentRootMenuTitle = root.title
+          self.currentRootMenuIcon = root.icon          
+          return false;
+        } else {
+          let subMenuIdx = 0
+          root.sub.every(function (subitem, i) {
+            if (subitem.path === currentPath) {
+              subMenuIdx++
+              self.currentRootMenuId = root.id
+              self.currentRootMenuTitle = root.title
+              self.currentRootMenuIcon = root.icon
+              self.currentSubMenu = root.sub
+              self.currentSelectedSubMenu = self.currentSubMenu[subMenuIdx]
+              return false
+            }
+            return true
+          })
         }
       }
-    });
+      return true
+    })
   }
 
   toggleDescription() {

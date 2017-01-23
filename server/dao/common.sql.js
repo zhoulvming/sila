@@ -1,5 +1,5 @@
 var common = {
-  querySites: 'select * from sila_site'
+  querySites: 'select * from b_site'
 };
 
 module.exports = common;

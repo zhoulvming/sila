@@ -161,13 +161,38 @@ var App = function () {
 			var sidebar = $('.sila .body .left');
 			$(sidebar).height(window_h - header_h);
 
-	};
+	}
+
+	var addDatePrototypeDateAdd = function() {
+		if ( !Date.prototype.DateAdd ) {
+			//+————————————————— 
+			//| 日期计算 
+			//+————————————————— 
+			Date.prototype.DateAdd = function(strInterval, Number) { 
+				var dtTmp = this; 
+				switch (strInterval) { 
+					case 's' : return new Date(dtTmp.getTime() + (1000 * Number)); 
+					case 'n' : return new Date(dtTmp.getTime() + (60000 * Number)); 
+					case 'h' : return new Date(dtTmp.getTime() + (3600000 * Number)); 
+					case 'd' : return new Date(dtTmp.getTime() + (86400000 * Number)); 
+					case 'w' : return new Date(dtTmp.getTime() + ((86400000 * 7) * Number)); 
+					case 'q' : return new Date(dtTmp.getFullYear(), (dtTmp.getMonth()) + Number * 3, dtTmp.getDate(), dtTmp.getHours(), dtTmp.getMinutes(), dtTmp.getSeconds()); 
+					case 'm' : return new Date(dtTmp.getFullYear(), (dtTmp.getMonth()) + Number, dtTmp.getDate(), dtTmp.getHours(), dtTmp.getMinutes(), dtTmp.getSeconds()); 
+					case 'y' : return new Date((dtTmp.getFullYear() + Number), dtTmp.getMonth(), dtTmp.getDate(), dtTmp.getHours(), dtTmp.getMinutes(), dtTmp.getSeconds()); 
+				} 
+			} 
+		}
+	}
+
+
+
 
 	return {
 		init: function()  {
-
 			resetCotentBodyHeight();
-
+			addDatePrototypeDateAdd();
 		}
 	}
 }();
+
+

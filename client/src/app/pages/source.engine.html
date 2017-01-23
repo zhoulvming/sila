@@ -1,1 +1,43 @@
-source.engine.html
+<div class="top">
+  <daterange (updateDaterangeI)="updateDaterangeI($event)" [input]="selectedDaterange"></daterange>
+</div>
+<div class="body">
+  <div class="ui segment">
+    <div class="ui segment">
+      <h4 class="ui header">
+        <div class="content">
+          <span style="font-size:10px;color:#666;font-weight:normal;">分析指标 :&nbsp;&nbsp;&nbsp;</span>
+          <div class="ui inline dropdown">
+            <div class="text">浏览量(PV)</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <div class="active item" data-text="浏览量(PV)">浏览量(PV)</div>
+              <div class="item" data-text="访问次数">访问次数</div>
+              <div class="item" data-text="访客数">访客数</div>
+              <div class="item" data-text="IP数">IP数</div>
+            </div>
+          </div>
+        </div>
+      </h4>
+    </div>
+    <!--echarts展现内容-->
+    <div class="ui segment">
+      <div class="ui grid" style="height:300px;border:0px solid red;">
+        <div class="six wide column" style="border:0px solid blue;">
+          <div id="pie_source_engine" style="height:230px;width:100%;"></div>
+        </div>
+        <div class="ten wide column" style="border:0px solid blue;">
+          <div id="line_source_engine" style="height:100%;width:100%;"></div>
+        </div>
+      </div>
+    </div>
+    <!--treetable展现内容-->
+    <br>
+    <div class="ui segment">
+      <div class="treegrid">
+        <table id="treegrid_engine"></table>
+        <div id="pager"></div>
+      </div>
+    </div>
+  </div>
+</div>

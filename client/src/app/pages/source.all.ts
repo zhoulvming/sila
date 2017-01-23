@@ -2,19 +2,14 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core'
 import { AppState, Global } from '../shared/services/app.service'
 var ec = require('echarts')
+declare var $: any
 
 // private import
 import { SourceService } from '../shared/services/source.service'
 
-declare var $: any
-
 @Component({
-  selector: 'source',
   templateUrl: './source.all.html',
-  styleUrls: ['source.all.scss'],
-  providers: [
-    SourceService
-  ],
+  providers: [ SourceService ],
 })
 export class SourceAllPage implements OnInit {
 
@@ -321,7 +316,7 @@ export class SourceAllPage implements OnInit {
 
     if (!siteId) {
       //alert('您未选择要分析的目标网站')
-      return
+      //return
     }
 
     //todo: test data
