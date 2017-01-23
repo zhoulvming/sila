@@ -1,0 +1,41 @@
+{
+	"rows": [{
+		"id": "1",
+		"name": "搜狐",
+		"pv": "300",
+		"pv_ratio": "60",
+		"visit_count": "160",
+		"uv": "200",
+		"visit_average_time": "00:02:40",
+		"lft": "1",
+		"rgt": "2",
+		"level": "0",
+		"uiicon": ""
+	}, {
+		"id": "2",
+		"name": "百度",
+		"pv": "100",
+		"pv_ratio": "20",
+		"visit_count": "70",
+		"uv": "150",
+		"visit_average_time": "00:01:40",
+		"lft": "3",
+		"rgt": "4",
+		"level": "0",
+		"uiicon": ""
+	}, {
+		"id": "3",
+		"name": "搜狗",
+		"pv": "200",
+		"pv_ratio": "40",
+		"visit_count": "90",
+		"uv": "50",
+		"visit_average_time": "00:01:00",
+		"lft": "5",
+		"rgt": "6",
+		"level": "0",
+		"uiicon": ""
+	}
+	
+	]
+}
