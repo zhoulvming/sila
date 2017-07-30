@@ -68,7 +68,8 @@ export class VisitDistrictPage implements OnInit {
       return ;
     }
 
-    this.visitorService.getVisitorDataByProvince(startDate, endDate, siteId)
+    // this.visitorService.getVisitorDataByProvince(startDate, endDate, siteId)
+    this.visitorService.getVisitorDataByProvince()
       .then(
       data => {
         this.list = data;

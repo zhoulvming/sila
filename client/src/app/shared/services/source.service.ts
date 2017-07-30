@@ -19,6 +19,4 @@ export class SourceService {
       .catch(this.handleError)
   }
 
-
-
 }

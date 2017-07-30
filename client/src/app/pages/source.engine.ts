@@ -46,11 +46,16 @@ export class SourceEnginePage implements OnInit {
     })
   }
 
+  /**
+   * 组件初始化
+   * 
+   *   _global.init: 每个页面均需要调用此函数
+   *   renderPage: 页面渲染
+   */
   ngOnInit() {
     this._global.init()
     this.renderPage()
   }
-
   ngAfterContentInit() { }
 
   /**
@@ -63,7 +68,6 @@ export class SourceEnginePage implements OnInit {
    *   endDate: ...
    * }
    * 
-   * @memberOf SourceAllPage
    */
   updateDaterangeI(obj) {
     this.selectedDaterange = obj
@@ -98,6 +102,7 @@ export class SourceEnginePage implements OnInit {
     //折线图
     self.setupLineChart()
 
+    // treegrid data
     self.setupTreeGrid()
 
   }
@@ -116,7 +121,6 @@ export class SourceEnginePage implements OnInit {
   }
 
   setupLineChart() {
-
     var option = {
       seriesData: [
         {
@@ -143,7 +147,6 @@ export class SourceEnginePage implements OnInit {
     }
     var dom = ec.init(document.getElementById('line_source_engine'))
     this._global.setupLineChart(dom, option)
-
   }
 
   setupTreeGrid() {
